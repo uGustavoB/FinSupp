@@ -18,10 +18,13 @@
 - [Descrição do ambiente de uso](#descrição-do-ambiente-de-uso)
   - [Ambiente de uso](#ambiente-de-uso)
   - [Necessidades principais quanto ao ambiente](#necessidades-principais-quanto-ao-ambiente)
-- [Custo e Venda](#custo-e-venda)
-- [Licenciamento e Instalação](#licenciamento-e-instalação)
-- [Características e Funcionalidades de Alto Nível](#características-e-funcionalidades-de-alto-nível)
-- [Restrições](#restrições)
+- [Visão geral do produto](#visão-geral-do-produto)
+  - [Visão Geral](#visão-geral)
+  - [Custo e Venda](#custo-e-venda)
+  - [Licenciamento e Instalação](#licenciamento-e-instalação)
+  - [Características e Funcionalidades de Alto Nível](#características-e-funcionalidades-de-alto-nível)
+  - [Restrições](#restrições)
+
 
 
 # Introdução 
