@@ -150,7 +150,7 @@ Além disso, o FinSupp pode ser integrado com outros sistemas e serviços financ
 Uma estrutura operacional do produto é apresentada na Figura 1.
 
 
-![https://github.com/uGustavoB/FinSupp/figura1.png][image1]
+[![Arquitetura ambiental do sistema FinSupp](https://github.com/uGustavoB/FinSupp/blob/main/figura1.png?raw=true)](https://github.com/uGustavoB/FinSupp/blob/main/figura1.png)
 **Figura 1** - Arquitetura ambiental do sistema FinSupp
 
 ## **Custo e Venda**
