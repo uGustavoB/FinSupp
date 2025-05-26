@@ -8,7 +8,6 @@
 - [Introdução](#introdução)
   - [Propósito](#propósito)
   - [Definições](#definições)
-
   - [Escopo do produto](#escopo-do-produto)
 - [Posicionamento](#posicionamento)
   - [Oportunidade de negócio](#oportunidade-de-negócio)
@@ -76,7 +75,7 @@ O FinSupp apresenta várias oportunidades de negócios, tais como:
 7. Gamificação para Engajamento  
    A inclusão de elementos de gamificação (metas, desafios de economia, recompensas) pode aumentar o engajamento dos usuários e criar oportunidades para parcerias com empresas de educação financeira ou plataformas de fidelidade.
 
-## Descrição dos benefícios para os clientes e dos problemas resolvidos {#descrição-dos-benefícios-para-os-clientes-e-dos-problemas-resolvidos}
+## Descrição dos benefícios para os clientes e dos problemas resolvidos 
 
 | Benefícios | Problemas Resolvidos | Afetados |
 | :---- | :---- | :---- |
@@ -86,11 +85,11 @@ O FinSupp apresenta várias oportunidades de negócios, tais como:
 | Facilidade no controle de gastos | Complexidade para registrar e acompanhar transações diárias | Usuários sem conhecimento técnico em finanças e sistemas |
 | Alertas personalizados | Falta de notificação ao exceder teto de gastos | Clientes que perdem controle de seus gastos |
 
-## Descrição dos stakeholders e dos usuários
+# Descrição dos stakeholders e dos usuários
 
 Esta seção descreve os principais stakeholders e usuários do FinSupp, suas necessidades e como o sistema atende a essas demandas.
 
-### Stakeholders
+## Stakeholders
 
 | Stakeholder | Descrição | Papel |
 | :---- | :---- | :---- |
@@ -102,7 +101,7 @@ Esta seção descreve os principais stakeholders e usuários do FinSupp, suas ne
 | Gerente de Projeto | Profissional responsável por gerenciar o projeto e garantir que o sistema seja entregue dentro do prazo e orçamento definidos | Gerenciar equipes e andamento do projeto |
 | Usuários | Pessoas que buscam uma solução para organizar suas finanças de forma centralizada | Usuário do sistema |
 
-### Usuários e atores
+## Usuários e atores
 
 | Usuário | Descrição | Responsabilidades | Stakeholders |
 | :---- | :---- | :---- | :---- |
@@ -134,9 +133,9 @@ A seguir, é apresentada uma tabela que descreve as necessidades dos clientes co
 | **Segurança:** o sistema deve garantir proteção contra acessos indevidos, confidencialidade dos dados, proteção contra ataques, gerenciamento seguro de senhas e auditoria completa com monitoramento através de logs. | Alta | Os usuários precisam ter total confiança na proteção de seus dados financeiros sensíveis, com garantia de que apenas pessoas autorizadas tenham acesso às informações e que todas as atividades sejam monitoradas. | Controles básicos de segurança em aplicativos existentes, muitas vezes inadequados para proteção de dados financeiros sensíveis. | Implementar autenticação multifator (2FA), criptografia end-to-end para dados sensíveis, certificados SSL/TLS, política de senhas robusta, monitoramento de segurança 24/7, logs de auditoria detalhados e conformidade com LGPD. |
 | **Usabilidade:** o sistema deve proporcionar fácil personalização (temas, cores), interface clara e intuitiva, mensagens de erro claras e feedback rápido ao usuário. | Moderada | Os usuários esperam uma experiência agradável e eficiente, com interface que se adapte às suas preferências pessoais e que seja fácil de navegar, mesmo para pessoas com pouco conhecimento técnico. | Interfaces complexas e pouco intuitivas em soluções existentes, com dificuldade de personalização e mensagens de erro técnicas confusas. | Desenvolver interface responsiva com design system moderno, sistema de temas personalizáveis (claro/escuro), mensagens de erro em linguagem simples com sugestões de solução, tooltips e ajuda contextual, testes de usabilidade com usuários reais e implementação de feedback visual imediato para todas as ações do usuário. |
 
-**Visão geral do produto**
+# **Visão geral do produto**
 
-**Visão Geral**
+## **Visão Geral**
 
 O FinSupp é um sistema de controle financeiro pessoal que permite aos usuários organizarem, monitorarem e gerenciarem suas finanças de maneira simples, prática e centralizada. Por meio da plataforma, os usuários podem registrar receitas e despesas, categorizar transações, acompanhar metas financeiras.
 
@@ -154,13 +153,11 @@ Uma estrutura operacional do produto é apresentada na Figura 1.
 ![https://github.com/uGustavoB/FinSupp/figura1.png][image1]
 **Figura 1** - Arquitetura ambiental do sistema FinSupp
 
-
-
-### **Custo e Venda**
+## **Custo e Venda**
 
 A decisão sobre a viabilidade econômica do requisito de planejamento financeiro do sistema FinSupp é aplicável ao departamento comercial, ao gerente de projetos e a potenciais clientes interessados na aquisição e implantação da solução.
 
-### **Licenciamento e Instalação**
+## **Licenciamento e Instalação**
 
 O sistema FinSupp será disponibilizado mediante a concessão de uma licença de uso, emitida pela empresa desenvolvedora. A licença permitirá ao cliente instalar e utilizar o software em servidores próprios ou em uma nuvem pública, desde que sejam respeitadas as condições mínimas de infraestrutura descritas no documento oficial de instalação.
 
@@ -170,7 +167,7 @@ Durante o processo de instalação, serão feitas as devidas configurações de 
 
 Após a instalação, o cliente receberá credenciais de acesso para começar a utilizar todas as funcionalidades do sistema FinSupp.
 
-### **Características e Funcionalidades de Alto Nível**
+## **Características e Funcionalidades de Alto Nível**
 
 Esta seção apresenta os principais requisitos de alto nível do sistema FinSupp, essenciais para gerar valor aos seus usuários:
 
@@ -194,9 +191,8 @@ Esta seção apresenta os principais requisitos de alto nível do sistema FinSup
 
 * O código-fonte do sistema será documentado e mantido sob versionamento, possibilitando auditorias e manutenção futuras.
 
-### 
 
-### **Restrições** 
+## **Restrições** 
 
 Algumas restrições a serem observadas no desenvolvimento e implantação do sistema FinSupp:
 
