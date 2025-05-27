@@ -213,4 +213,4 @@ Algumas restrições a serem observadas no desenvolvimento e implantação do si
 
 * **Desempenho:** Deve garantir alta performance, com escalabilidade e disponibilidade adequadas ao volume esperado.
 
-* **Geografia e Idioma:** O sistema deve considerar fusos horários e estar disponível no idioma portuguêsl.
+* **Geografia e Idioma:** O sistema deve considerar fusos horários e estar disponível no idioma português.
