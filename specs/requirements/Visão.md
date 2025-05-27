@@ -213,18 +213,18 @@ Esta seção apresenta os principais requisitos de alto nível do sistema FinSup
 
 Algumas restrições a serem observadas no desenvolvimento e implantação do sistema FinSupp:
 
-* **Orçamento:** O projeto deve ser executado dentro do limite orçamentário aprovado previamente.
+* Orçamento: O projeto deve ser executado dentro do limite orçamentário aprovado previamente.
 
-* **Tempo:** O sistema deve ser entregue em até 12 meses, com entregas quinzenais do MVP (Produto Mínimo Viável).
+* Tempo: O sistema deve ser entregue em até 12 meses, com entregas quinzenais do MVP (Produto Mínimo Viável).
 
-* **Hardware:** O sistema deve ser compatível com a infraestrutura moderna atual, não suportando hardware obsoleto.
+* Hardware: O sistema deve ser compatível com a infraestrutura moderna atual, não suportando hardware obsoleto.
 
-* **Segurança e privacidade:** Deve estar conforme a LGPD (Lei Geral de Proteção de Dados).
+* Segurança e privacidade: Deve estar conforme a LGPD (Lei Geral de Proteção de Dados).
 
-* **Usabilidade:** A interface deve ser acessível para usuários com deficiência visual ou motora, conforme as diretrizes de acessibilidade.
+* Usabilidade: A interface deve ser acessível para usuários com deficiência visual ou motora, conforme as diretrizes de acessibilidade.
 
-* **Interoperabilidade:** O sistema deve ser capaz de integrar-se com outras plataformas e sistemas contábeis/financeiros via APIs.
+* Interoperabilidade: O sistema deve ser capaz de integrar-se com outras plataformas e sistemas contábeis/financeiros via APIs.
 
-* **Desempenho:** Deve garantir alta desempenho, com escalabilidade e disponibilidade adequadas ao volume esperado.
+* Desempenho: Deve garantir alta desempenho, com escalabilidade e disponibilidade adequadas ao volume esperado.
 
-* **Geografia e Idioma:** O sistema deve considerar fusos horários e estar disponível no idioma português.
+* Geografia e Idioma: O sistema deve considerar fusos horários e estar disponível no idioma português.
