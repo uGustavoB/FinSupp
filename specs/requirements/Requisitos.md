@@ -44,23 +44,23 @@ Os requisitos funcionais são descritos a seguir.
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | [RF0001] | Eu gostaria de poder manter meus dados de login no sistema, são eles: nome completo, email e senha.                                       | Usuários do sistema                   |
 | [RF0002] | Eu gostaria de poder recuperar o acesso à minha conta em casos adversos.                                                                  | Usuários do Sistema                   |
-| [RF0004] | Eu gostaria de ser alertado sobre atividades suspeitas na minha conta.                                                                    | Usuários do Sistema                   |
-| [RF0005] | Eu gostaria de receber notificações por e-mail sempre que minha conta for criada ou modificada.                                           | Usuários do Sistema                   |
-| [RF0006] | Eu gostaria de poder visualizar um histórico de todas as ações realizadas na minha conta.                                                 | Usuário Cliente, Administrador        |
-| [RF0007] | Eu gostaria de poder associar múltiplas contas bancárias ao meu perfil.                                                                   | Usuário Cliente                       |
-| [RF0008] | Eu gostaria de poder importar meus dados financeiros automaticamente via integração com instituições financeiras.                         | Usuário Cliente                       |
-| [RF0009] | Eu gostaria de poder editar meu perfil, incluindo dados pessoais, de login e preferências de notificação.                                 | Usuário Cliente, Atendente de Suporte |
-| [RF0010] | Eu gostaria de poder compartilhar o acesso da conta com outro usuário com permissões restritas.                                           | Usuário Cliente                       |
-| [RF0011] | Eu gostaria de poder solicitar suporte técnico diretamente pela plataforma.                                                               | Usuário Cliente                       |
-| [RF0012] | Eu gostaria de poder registrar e acompanhar tickets de suporte.                                                                           | Atendente de Suporte                  |
-| [RF0013] | Eu Gostaria de poder entrar no sistema com a biometria para facilitar o processo de login.                                                | Usuário Cliente                       |
-| [RF0014] | Eu gostaria de poder habilitar ou desabilitar o acesso biométrico/facial para login a qualquer momento.                                   | Usuário Cliente                       |
-| [RF0015] | Eu gostaria de poder suspender o acesso de um usuário em caso de atividades suspeitas ou solicitações.                                    | Administrador                         |
-| [RF0016] | Eu gostaria de poder acessar informações de contato de emergência do usuário em caso de problemas críticos na conta.                      | Atendente de Suporte                  |
-| [RF0017] | Eu gostaria de poder visualizar o histórico de login do usuário para auxiliar na identificação de problemas de acesso.                    | Atendente de Suporte                  |
-| [RF0018] | Eu gostaria de poder enviar mensagens diretas para o usuário dentro da plataforma para resolver tickets.                                  | Atendente de Suporte                  |
-| [RF0019] | Eu gostaria de poder redefinir minha senha de acesso, caso a tenha esquecido, através de um fluxo seguro de recuperação.                  | Usuário Cliente                       |
-| [RF0020] | Eu gostaria de poder alterar minha senha de acesso a qualquer momento, estando logado no sistema, para manter a segurança da minha conta. | Usuário Cliente                       |
+| [RF0003] | Eu gostaria de ser alertado sobre atividades suspeitas na minha conta.                                                                    | Usuários do Sistema                   |
+| [RF0004] | Eu gostaria de receber notificações por e-mail sempre que minha conta for criada ou modificada.                                           | Usuários do Sistema                   |
+| [RF0005] | Eu gostaria de poder visualizar um histórico de todas as ações realizadas na minha conta.                                                 | Usuário Cliente, Administrador        |
+| [RF0006] | Eu gostaria de poder associar múltiplas contas bancárias ao meu perfil.                                                                   | Usuário Cliente                       |
+| [RF0007] | Eu gostaria de poder importar meus dados financeiros automaticamente via integração com instituições financeiras.                         | Usuário Cliente                       |
+| [RF0008] | Eu gostaria de poder editar meu perfil, incluindo dados pessoais, de login e preferências de notificação.                                 | Usuário Cliente, Atendente de Suporte |
+| [RF0009] | Eu gostaria de poder compartilhar o acesso da conta com outro usuário com permissões restritas.                                           | Usuário Cliente                       |
+| [RF0010] | Eu gostaria de poder solicitar suporte técnico diretamente pela plataforma.                                                               | Usuário Cliente                       |
+| [RF0011] | Eu gostaria de poder registrar e acompanhar tickets de suporte.                                                                           | Atendente de Suporte                  |
+| [RF0012] | Eu Gostaria de poder entrar no sistema com a biometria para facilitar o processo de login.                                                | Usuário Cliente                       |
+| [RF0013] | Eu gostaria de poder habilitar ou desabilitar o acesso biométrico/facial para login a qualquer momento.                                   | Usuário Cliente                       |
+| [RF0014] | Eu gostaria de poder suspender o acesso de um usuário em caso de atividades suspeitas ou solicitações.                                    | Administrador                         |
+| [RF0015] | Eu gostaria de poder acessar informações de contato de emergência do usuário em caso de problemas críticos na conta.                      | Atendente de Suporte                  |
+| [RF0016] | Eu gostaria de poder visualizar o histórico de login do usuário para auxiliar na identificação de problemas de acesso.                    | Atendente de Suporte                  |
+| [RF0017] | Eu gostaria de poder enviar mensagens diretas para o usuário dentro da plataforma para resolver tickets.                                  | Atendente de Suporte                  |
+| [RF0018] | Eu gostaria de poder redefinir minha senha de acesso, caso a tenha esquecido, através de um fluxo seguro de recuperação.                  | Usuário Cliente                       |
+| [RF0019] | Eu gostaria de poder alterar minha senha de acesso a qualquer momento, estando logado no sistema, para manter a segurança da minha conta. | Usuário Cliente                       |
 
 ### Sistema de Gerenciamento Financeiro
 
