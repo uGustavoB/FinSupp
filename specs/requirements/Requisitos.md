@@ -42,9 +42,8 @@ Os requisitos funcionais são descritos a seguir.
 
 | Código   | Requisito                                                                                                                                 | Usuário                               |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| [RF0001] | Eu gostaria de poder manter meus dados atualizados, desde que tenham sido providos pelo banco.                                            | Usuário Cliente                       |
+| [RF0001] | Eu gostaria de poder manter meus dados de login no sistema, são eles: nome completo, email e senha.                                       | Usuários do sistema                   |
 | [RF0002] | Eu gostaria de poder recuperar o acesso à minha conta em casos adversos.                                                                  | Usuários do Sistema                   |
-| [RF0003] | Eu gostaria de poder excluir minha conta e solicitar a remoção completa dos meus dados.                                                   | Usuários do Sistema                   |
 | [RF0004] | Eu gostaria de ser alertado sobre atividades suspeitas na minha conta.                                                                    | Usuários do Sistema                   |
 | [RF0005] | Eu gostaria de receber notificações por e-mail sempre que minha conta for criada ou modificada.                                           | Usuários do Sistema                   |
 | [RF0006] | Eu gostaria de poder visualizar um histórico de todas as ações realizadas na minha conta.                                                 | Usuário Cliente, Administrador        |
