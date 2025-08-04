@@ -60,7 +60,6 @@ Os requisitos funcionais são descritos a seguir.
 | [RF0016] | Eu gostaria de poder visualizar o histórico de login do usuário para auxiliar na identificação de problemas de acesso.                    | Atendente de Suporte                  |
 | [RF0017] | Eu gostaria de poder enviar mensagens diretas para o usuário dentro da plataforma para resolver tickets.                                  | Atendente de Suporte                  |
 | [RF0018] | Eu gostaria de poder redefinir minha senha de acesso, caso a tenha esquecido, através de um fluxo seguro de recuperação.                  | Usuário Cliente                       |
-| [RF0019] | Eu gostaria de poder alterar minha senha de acesso a qualquer momento, estando logado no sistema, para manter a segurança da minha conta. | Usuário Cliente                       |
 
 ### Sistema de Gerenciamento Financeiro
 
