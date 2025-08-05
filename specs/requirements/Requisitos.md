@@ -15,9 +15,9 @@ Esta subseção fornece as definições de todos os termos, acrônimos e abrevia
 
   O identificador do tipo de requisitos é conforme abaixo:
 
-    - RF – Requisito Funcional
-    - RNF – Requisito Não-Funcional
-    - NR – Não-Requisito
+  - RF – Requisito Funcional
+  - RNF – Requisito Não-Funcional
+  - NR – Não-Requisito
 
   O identificador do requisito será uma sequência numérica. Esse número sequencial será único para todo o conjunto de tipos de requisitos.
 
@@ -60,32 +60,34 @@ Os requisitos funcionais são descritos a seguir.
 | [RF0016] | Eu gostaria de poder visualizar o histórico de login do usuário para auxiliar na identificação de problemas de acesso.                    | Atendente de Suporte                  |
 | [RF0017] | Eu gostaria de poder enviar mensagens diretas para o usuário dentro da plataforma para resolver tickets.                                  | Atendente de Suporte                  |
 | [RF0018] | Eu gostaria de poder redefinir minha senha de acesso, caso a tenha esquecido, através de um fluxo seguro de recuperação.                  | Usuário Cliente                       |
+| [RF0019] | Eu gostaria de poder alterar minha senha de acesso a qualquer momento, estando logado no sistema, para manter a segurança da minha conta. | Usuário Cliente                       |
 
 ### Sistema de Gerenciamento Financeiro
 
-| Código   | Requisito                                                                                                                                                                    | Usuário         |
-|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [RF1001] | Eu gostaria de poder visualizar o saldo atual de todas as minhas contas vinculadas, separadas entre cada uma.                                                                | Usuário Cliente |
-| [RF1002] | Eu gostaria de poder visualizar as entradas e saídas do mês atual.                                                                                                           | Usuário Cliente |
-| [RF1003] | Eu gostaria de poder visualizar as minhas despesas de forma simplificada em gráficos e separadas por categoria.                                                              | Usuário Cliente |
-| [RF1004] | Eu gostaria de poder visualizar minhas metas de economia e como está o progresso.                                                                                            | Usuário Cliente |
-| [RF1005] | Eu gostaria de poder receber alertas sobre datas de vencimentos de contas a pagar.                                                                                           | Usuário Cliente |
-| [RF1006] | Eu gostaria de poder exportar relatórios sobre os meus gastos, categorizados por conta, período ou categoria, em formatos como PDF ou CSV.                                   | Usuário Cliente |
-| [RF1007] | Eu gostaria de poder programar despesas recorrentes (ex: aluguel, assinaturas) para que sejam lançadas automaticamente.                                                      | Usuário Cliente |
-| [RF1008] | Eu gostaria de poder definir metas de economia personalizadas por categoria ou para um objetivo específico (ex: viagem, compra de carro).                                    | Usuário Cliente |
-| [RF1009] | Eu gostaria de poder receber alertas quando me aproximar ou exceder o limite de gastos definido para uma categoria.                                                          | Usuário Cliente |
-| [RF1010] | Eu gostaria de poder visualizar um resumo financeiro mensal com o balanço entre receitas e despesas.                                                                         | Usuário Cliente |
-| [RF1011] | Eu gostaria de poder visualizar transações como pagas ou recebidas para ter um controle mais preciso do fluxo de caixa.                                                      | Usuário Cliente |
-| [RF1012] | Eu gostaria de poder criar orçamentos personalizados para diferentes categorias de despesas (ex: alimentação, lazer) por período.                                            | Usuário Cliente |
-| [RF1013] | Eu gostaria de poder excluir categorias que não utilizo mais, desde que não estejam vinculadas a transações ativas.                                                          | Usuário Cliente |
-| [RF1014] | Eu gostaria de poder manter meus cartões de crédito e débito, incluindo informações como bandeira, limite e data de vencimento da fatura, para acompanhar meus gastos.       | Usuário Cliente |
-| [RF1015] | Eu gostaria de poder visualizar o extrato detalhado de cada um dos meus cartões, com todas as transações realizadas, para controle de gastos.                                | Usuário Cliente |
-| [RF1016] | Eu gostaria de poder registrar faturas de cartão de crédito, com data de vencimento e valor total, para acompanhar meus pagamentos.                                          | Usuário Cliente |
-| [RF1017] | Eu gostaria de poder manter minhas assinaturas recorrentes (ex: streaming, softwares), incluindo valor, periodicidade e data de renovação, para controlar meus gastos fixos. | Usuário Cliente |
-| [RF1018] | Eu gostaria de poder realizar transferências de valores entre minhas contas vinculadas no sistema, para organizar meus recursos financeiros.                                 | Usuário Cliente |
-| [RF1019] | Eu gostaria de poder visualizar projeções financeiras futuras com base no meu histórico de gastos e receitas.                                                                | Usuário Cliente | 
-| [RF1020] | Eu gostaria de poder visualizar um calendário financeiro com todos os meus eventos (pagamentos, recebimentos, vencimentos de faturas).                                       | Usuário Cliente |
-| [RF1021] | Eu gostaria de poder visualizar gráficos comparativos de gastos entre diferentes períodos.                                                                                   | Usuário Cliente |
+| Código   | Requisito                                                                                                                                                                    | Usuário                                     |
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
+| [RF1001] | Eu gostaria de poder visualizar todas as minhas contas e seus respectivos saldos.                                                                                            | Usuário Cliente                             |
+| [RF1002] | Eu gostaria de poder visualizar as entradas e saídas, que podem ser filtradas por uma data inicial e data final.                                                             | Usuário Cliente                             |
+| [RF1003] | Eu gostaria de poder visualizar as minhas despesas de forma simplificada em gráficos e separadas por categoria.                                                              | Usuário Cliente                             |
+| [RF1004] | Eu gostaria de poder visualizar minhas metas de economia e como está o progresso.                                                                                            | Usuário Cliente                             |
+| [RF1005] | Eu gostaria de poder receber alertas sobre datas de vencimentos de contas a pagar.                                                                                           | Usuário Cliente                             |
+| [RF1006] | Eu gostaria de poder exportar relatórios sobre os gastos, categorizados por conta, periodo ou categoria, em formatos como PDF ou CSV.                                        | Usuário Cliente, Atendente de suporte       |
+| [RF1007] | Eu gostaria de poder programar despesas recorrentes (ex: aluguel, assinaturas) para que sejam lançadas automaticamente.                                                      | Usuário Cliente                             |
+| [RF1008] | Eu gostaria de poder definir metas de economia personalizadas por categoria ou para um objetivo específico (ex: viagem, compra de carro).                                    | Usuário Cliente                             |
+| [RF1009] | Eu gostaria de poder receber alertas quando me aproximar ou exceder o limite de gastos definido para uma categoria.                                                          | Usuário Cliente                             |
+| [RF1010] | Eu gostaria de poder visualizar um resumo financeiro mensal com o balanço entre receitas e despesas.                                                                         | Usuário Cliente                             |
+| [RF1011] | Eu gostaria de poder visualizar transações como pagas ou recebidas para ter um controle mais preciso do fluxo de caixa.                                                      | Usuário Cliente                             |
+| [RF1012] | Eu gostaria de poder criar orçamentos personalizados para diferentes categorias de despesas (ex: alimentação, lazer) por período.                                            | Usuário Cliente                             |
+| [RF1013] | Eu gostaria de poder visualizar, cadastrar e editar categorias.                                                                                                              | Usuário Cliente                             |
+| [RF1014] | Eu gostaria de poder manter meus cartões de crédito e débito, incluindo informações como bandeira, limite e data de vencimento da fatura, para acompanhar meus gastos.       | Usuário Cliente                             |
+| [RF1015] | Eu gostaria de poder visualizar o extrato detalhado de cada um dos meus cartões, com todas as transações realizadas, para controle de gastos.                                | Usuário Cliente                             |
+| [RF1016] | Eu gostaria de poder registrar faturas de cartão de crédito, com data de vencimento e valor total, para acompanhar meus pagamentos.                                          | Usuário Cliente                             |
+| [RF1017] | Eu gostaria de poder manter minhas assinaturas recorrentes (ex: streaming, softwares), incluindo valor, periodicidade e data de renovação, para controlar meus gastos fixos. | Usuário Cliente                             |
+| [RF1018] | Eu gostaria de poder realizar transferências de valores entre minhas contas vinculadas no sistema, para organizar meus recursos financeiros.                                 | Usuário Cliente                             |
+| [RF1019] | Eu gostaria de poder visualizar projeções financeiras futuras com base no meu histórico de gastos e receitas.                                                                | Usuário Cliente                             | 
+| [RF1020] | Eu gostaria de poder visualizar um calendário financeiro com todos os meus eventos (pagamentos, recebimentos, vencimentos de faturas).                                       | Usuário Cliente                             |
+| [RF1021] | Eu gostaria de poder visualizar gráficos comparativos de gastos entre diferentes períodos.                                                                                   | Usuário Cliente                             |
+| [RF1022] | Eu gostaria de poder manter categorias.                                                                                                                                      | Usuário administrador, Atendente de suporte |
 
 ### Design
 
