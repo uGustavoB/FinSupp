@@ -93,7 +93,7 @@ Os requisitos funcionais são descritos a seguir.
 
 | Código   | Requisito                                                                                                                                                                        | Usuário             |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| [RF9001] | Eu gostaria de poder alternar entre temas claros ou escuros, para que o sistema tenha melhor conforto visual.                                                                    | Usuários do Sistema |
+| [RF9001] | Eu gostaria de poder alternar entre o tema claro e escuro, para que o sistema tenha melhor conforto visual.                                                                      | Usuários do Sistema |
 | [RF9002] | Eu gostaria que o sistema ofertasse os modos de acessibilidade para daltonismo, leitura de tela e controle por voz; para que eu possa alternar entre eles.                       | Usuários do Sistema |
 | [RF9006] | Eu gostaria de poder personalizar a ordem e a visibilidade dos elementos no meu painel principal (dashboard) para ter as informações que considero mais importantes em destaque. | Usuários do Sistema |
 | [RF9007] | Eu gostaria que os gráficos financeiros fossem interativos e permitissem a exploração de dados (ex: clicar em uma barra para ver detalhes).                                      | Usuários do Sistema |
