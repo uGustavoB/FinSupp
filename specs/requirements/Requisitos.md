@@ -95,8 +95,6 @@ Os requisitos funcionais são descritos a seguir.
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [RF9001] | Eu gostaria de poder alternar entre temas claros ou escuros, para que o sistema tenha melhor conforto visual.                                                                    | Usuários do Sistema |
 | [RF9002] | Eu gostaria que o sistema ofertasse os modos de acessibilidade para daltonismo, leitura de tela e controle por voz; para que eu possa alternar entre eles.                       | Usuários do Sistema | | Usuários do Sistema |
-| [RF9004] | Eu gostaria que o sistema apresentasse ícones e elementos visuais claros e autoexplicativos para facilitar a navegação.                                                          | Usuários do Sistema |
-| [RF9005] | Eu gostaria que o sistema fornecesse feedback visual imediato para todas as ações do usuário (ex: um "check" verde após salvar, um botão desabilitado durante o carregamento).   | Usuários do Sistema |
 | [RF9006] | Eu gostaria de poder personalizar a ordem e a visibilidade dos elementos no meu painel principal (dashboard) para ter as informações que considero mais importantes em destaque. | Usuários do Sistema |
 | [RF9007] | Eu gostaria que os gráficos financeiros fossem interativos e permitissem a exploração de dados (ex: clicar em uma barra para ver detalhes).                                      | Usuários do Sistema |
 | [RF9008] | Eu gostaria que o sistema permitisse ajustar o tamanho da fonte para melhorar a legibilidade de acordo com minhas preferências.                                                  | Usuários do Sistema |
@@ -105,26 +103,28 @@ Os requisitos funcionais são descritos a seguir.
 
 ## Requisitos Não Funcionais (RNF)
 
-| Código    | Requisito                                                                                                                                                            |
-|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [RNF0001] | Eu gostaria de permanecer conectado por um tempo determinado.                                                                                                        |
-| [RNF0002] | Eu gostaria que o sistema oferecesse autenticação em dois fatores para maior segurança.                                                                              |
-| [RNF0003] | Eu gostaria que o sistema mantivesse um log de acessos detalhado.                                                                                                    |
-| [RNF0004] | O sistema deve estar alinhado com a LGPD no tratamento dos dados de login do usuário.                                                                                |
-| [RNF0005] | O sistema deve estar alinhado com as diretrizes da W3C para acessibilidade (Web Content Accessibility Guidelines)                                                    |
-| [RNF0006] | O sistema deve estar permitir suporte a múltiplos idiomas, e possuir o texto da interface separada do código                                                         |
-| [RNF0007] | O sistema deve ajudar e instruir o usuário mostrando-lhe de forma clara e intuitiva como usar a a interface                                                          |
-| [RNF0008] | O sistema deve garantir a integridade dos dados financeiros por meio de backups diários e planos de recuperação de desastres.                                        |
-| [RNF0009] | O sistema deve oferecer uma experiência consistente e fluida em diferentes tamanhos de tela (desktop, tablet, smartphone).                                           |
-| [RNF0010] | O sistema deve ser otimizado para consumo de bateria em dispositivos móveis, minimizando o impacto no uso diário.                                                    |
-| [RNF0011] | O sistema deve fornecer mensagens de erro amigáveis e soluções sugeridas sempre que uma operação falhar.                                                             |
-| [RNF0012] | O sistema deve oferecer suporte a diferentes fusos horários, exibindo datas e horários de acordo com a configuração do usuário.                                      |
-| [RNF0013] | O sistema deve ser capaz de operar de forma offline para visualização de dados previamente sincronizados, com atualização assim que a conexão for reestabelecida.    |
-| [RNF0014] | O sistema deve ser otimizado para o consumo de dados de internet, especialmente em dispositivos móveis, para reduzir custos para o usuário.                          |
-| [RNF0015] | O sistema deve permitir a configuração de notificações personalizadas (ex: sons, vibrações) em dispositivos móveis.                                                  |
-| [RNF0016] | O sistema deve utilizar criptografia de ponta a ponta (TLS 1.2 ou superior) para todas as comunicações entre o cliente e o servidor.                                 |
-| [RNF0017] | O sistema deve implementar medidas de proteção contra ataques comuns da web, como SQL Injection, Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF).     |
-| [RNF0018] | O sistema deve ser modular e bem documentado, facilitando a manutenção e a adição de novas funcionalidades por parte da equipe de desenvolvimento.                   |
-| [RNF0019] | O sistema deve ser compatível com as últimas duas versões dos principais navegadores (Chrome, Firefox, Edge e Safari) e sistemas operacionais móveis (Android, iOS). |
-| [RNF0020] | O sistema deve implementar um mecanismo de cache para dados frequentemente acessados, a fim de otimizar o desempenho e reduzir a carga no servidor.                  |
-| [RNF0021] | O sistema deve realizar validação de entrada de dados em todas as interfaces de usuário e APIs para prevenir dados inválidos ou maliciosos.                          |
+| Código    | Requisito                                                                                                                                                                      |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [RNF0001] | Eu gostaria de permanecer conectado por um tempo determinado.                                                                                                                  |
+| [RNF0002] | Eu gostaria que o sistema oferecesse autenticação em dois fatores para maior segurança.                                                                                        |
+| [RNF0003] | Eu gostaria que o sistema mantivesse um log de acessos detalhado.                                                                                                              |
+| [RNF0004] | O sistema deve estar alinhado com a LGPD no tratamento dos dados de login do usuário.                                                                                          |
+| [RNF0005] | O sistema deve estar alinhado com as diretrizes da W3C para acessibilidade (Web Content Accessibility Guidelines)                                                              |
+| [RNF0006] | O sistema deve estar permitir suporte a múltiplos idiomas, e possuir o texto da interface separada do código                                                                   |
+| [RNF0007] | O sistema deve ajudar e instruir o usuário mostrando-lhe de forma clara e intuitiva como usar a a interface                                                                    |
+| [RNF0008] | O sistema deve garantir a integridade dos dados financeiros por meio de backups diários e planos de recuperação de desastres.                                                  |
+| [RNF0009] | O sistema deve oferecer uma experiência consistente e fluida em diferentes tamanhos de tela (desktop, tablet, smartphone).                                                     |
+| [RNF0010] | O sistema deve ser otimizado para consumo de bateria em dispositivos móveis, minimizando o impacto no uso diário.                                                              |
+| [RNF0011] | O sistema deve fornecer mensagens de erro amigáveis e soluções sugeridas sempre que uma operação falhar.                                                                       |
+| [RNF0012] | O sistema deve oferecer suporte a diferentes fusos horários, exibindo datas e horários de acordo com a configuração do usuário.                                                |
+| [RNF0013] | O sistema deve ser capaz de operar de forma offline para visualização de dados previamente sincronizados, com atualização assim que a conexão for reestabelecida.              |
+| [RNF0014] | O sistema deve ser otimizado para o consumo de dados de internet, especialmente em dispositivos móveis, para reduzir custos para o usuário.                                    |
+| [RNF0015] | O sistema deve permitir a configuração de notificações personalizadas (ex: sons, vibrações) em dispositivos móveis.                                                            |
+| [RNF0016] | O sistema deve utilizar criptografia de ponta a ponta (TLS 1.2 ou superior) para todas as comunicações entre o cliente e o servidor.                                           |
+| [RNF0017] | O sistema deve implementar medidas de proteção contra ataques comuns da web, como SQL Injection, Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF).               |
+| [RNF0018] | O sistema deve ser modular e bem documentado, facilitando a manutenção e a adição de novas funcionalidades por parte da equipe de desenvolvimento.                             |
+| [RNF0019] | O sistema deve ser compatível com as últimas duas versões dos principais navegadores (Chrome, Firefox, Edge e Safari) e sistemas operacionais móveis (Android, iOS).           |
+| [RNF0020] | O sistema deve implementar um mecanismo de cache para dados frequentemente acessados, a fim de otimizar o desempenho e reduzir a carga no servidor.                            |
+| [RNF0021] | O sistema deve realizar validação de entrada de dados em todas as interfaces de usuário e APIs para prevenir dados inválidos ou maliciosos.                                    |
+| [RNF0022] | Eu gostaria que o sistema apresentasse ícones e elementos visuais claros e autoexplicativos para facilitar a navegação.                                                        |
+| [RNF0023] | Eu gostaria que o sistema fornecesse feedback visual imediato para todas as ações do usuário (ex: um "check" verde após salvar, um botão desabilitado durante o carregamento). |
