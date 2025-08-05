@@ -1,0 +1,83 @@
+@startuml
+left to right direction
+
+actor "Usuários do Sistema" as US
+actor "Usuários Comuns" as UCM
+actor "Usuário Cliente" as UCL
+actor "Atendente de Suporte" as AS
+actor "Administrador" as ADM
+actor "Entidades Financeiras" as EF
+
+US --> UCM
+
+US --> ADM
+US --> EF
+
+UCM --> AS
+UCM --> UCL
+
+rectangle "Sistema de Gerenciamento Financeiro" {
+    usecase "Visualizar conta" as UC1.1
+    usecase "Visualizar entradas e saídas" as UC1.2
+    usecase "Visualizar despesas" as UC1.3
+    usecase "Visualizar metas de economia" as UC1.4
+    usecase "Receber alertas" as UC1.5
+    usecase "Exportar relatórios" as UC1.6
+    usecase "Programar despesas recorrentes" as UC1.7
+    usecase "Definir metas" as UC1.8
+    usecase "Visualizar painel de resumo financeiro" as UC1.9
+    usecase "Marcar transações" as UC1.10
+    usecase "Manter orçamentos" as UC1.11
+
+    usecase "Manter cartões" as UC1.13
+    usecase "Registrar faturas" as UC1.14
+    usecase "Manter assinaturas" as UC1.15
+    usecase "Transferir entre contas" as UC1.16
+    usecase "Visualizar projeções de gastos" as UC1.17
+    usecase "Visualizar calendário financeiro" as UC1.18
+    usecase "Visualizar gráfico comparativo" as UC1.19
+    usecase "Visualizar, cadastrar e editar categorias" as UC1.20
+    usecase "Manter categorias" as UC1.21
+
+    usecase "Visualizar saldo" as UC1.1.1
+    usecase "Separar pro categorias" as UC1.3.1
+    usecase "Visualizar extrato detalhado" as UC1.13.1
+
+    ' Relacionamentos para forçar UC1.2 à esquerda de UC1.2.1
+    UC1.1 -[hidden]-> UC1.1.1
+    UC1.3 -[hidden]-> UC1.3.1
+    UC1.13 .[hidden]> UC1.13.1
+}
+
+UC1.1.1 ..> UC1.1 : <<extend>>
+UC1.3 ..> UC1.3.1 : <<include>>
+UC1.13.1 ..> UC1.13 : <<extend>>
+UC1.13.1 ..> UC1.2 : <<extend>>
+
+UCL --> UC1.1
+UCL --> UC1.2
+UCL --> UC1.3
+UCL --> UC1.4
+UCL --> UC1.5
+UCL --> UC1.6
+UCL --> UC1.7
+UCL --> UC1.8
+UCL --> UC1.9
+UCL --> UC1.10
+UCL --> UC1.11
+UCL --> UC1.13
+UCL --> UC1.14
+UCL --> UC1.15
+UCL --> UC1.16
+UCL --> UC1.17
+UCL --> UC1.18
+UCL --> UC1.19
+UCL --> UC1.20
+
+AS --> UC1.6
+AS --> UC1.20
+AS --> UC1.21
+
+ADM --> UC1.21
+
+@enduml
