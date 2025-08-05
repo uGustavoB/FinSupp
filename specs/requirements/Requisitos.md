@@ -93,7 +93,7 @@ Os requisitos funcionais são descritos a seguir.
 
 | Código   | Requisito                                                                                                                                                                        | Usuário             |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| [RF9001] | Eu gostaria de poder alternar entre temas claros ou escuros, para que o sistema melhor conforto visual.                                                                          | Usuários do Sistema |
+| [RF9001] | Eu gostaria de poder alternar entre temas claros ou escuros, para que o sistema tenha melhor conforto visual.                                                                    | Usuários do Sistema |
 | [RF9002] | Eu gostaria que o sistema ofertasse os modos de acessibilidade para daltonismo, leitura de tela e controle por voz; para que eu possa alternar entre eles.                       | Usuários do Sistema | | Usuários do Sistema |
 | [RF9004] | Eu gostaria que o sistema apresentasse ícones e elementos visuais claros e autoexplicativos para facilitar a navegação.                                                          | Usuários do Sistema |
 | [RF9005] | Eu gostaria que o sistema fornecesse feedback visual imediato para todas as ações do usuário (ex: um "check" verde após salvar, um botão desabilitado durante o carregamento).   | Usuários do Sistema |
