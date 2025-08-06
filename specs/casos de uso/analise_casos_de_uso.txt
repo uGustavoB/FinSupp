@@ -18,7 +18,7 @@ UCM <|-- UCL
 rectangle "Sistema de Gerenciamento Financeiro" {
     usecase "Visualizar conta" as UC1.1
     usecase "Visualizar entradas e saídas" as UC1.2
-    usecase "Visualizar despesas" as UC1.3
+    usecase "Visualizar despesas em gráficos" as UC1.3
     usecase "Visualizar metas de economia" as UC1.4
     usecase "Receber alertas" as UC1.5
     usecase "Exportar relatórios" as UC1.6
@@ -38,18 +38,12 @@ rectangle "Sistema de Gerenciamento Financeiro" {
     usecase "Visualizar, cadastrar e editar categorias" as UC1.20
     usecase "Manter categorias" as UC1.21
 
-    usecase "Visualizar saldo" as UC1.1.1
-    usecase "Separar pro categorias" as UC1.3.1
     usecase "Visualizar extrato detalhado" as UC1.13.1
 
     ' Relacionamentos para forçar UC1.2 à esquerda de UC1.2.1
-    UC1.1 -[hidden]-> UC1.1.1
-    UC1.3 -[hidden]-> UC1.3.1
     UC1.13 .[hidden]> UC1.13.1
 }
 
-UC1.1.1 ..> UC1.1 : <<extend>>
-UC1.3 ..> UC1.3.1 : <<include>>
 UC1.13.1 ..> UC1.13 : <<extend>>
 UC1.13.1 ..> UC1.2 : <<extend>>
 
