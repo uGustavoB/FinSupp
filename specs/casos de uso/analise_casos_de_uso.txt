@@ -8,13 +8,12 @@ actor "Atendente de Suporte" as AS
 actor "Administrador" as ADM
 actor "Entidades Financeiras" as EF
 
-US --> UCM
+US <|-- UCM
+US <|-- ADM
+US <|-- EF
 
-US --> ADM
-US --> EF
-
-UCM --> AS
-UCM --> UCL
+UCM <|-- AS
+UCM <|-- UCL
 
 rectangle "Sistema de Gerenciamento Financeiro" {
     usecase "Visualizar conta" as UC1.1
@@ -54,30 +53,30 @@ UC1.3 ..> UC1.3.1 : <<include>>
 UC1.13.1 ..> UC1.13 : <<extend>>
 UC1.13.1 ..> UC1.2 : <<extend>>
 
-UCL --> UC1.1
-UCL --> UC1.2
-UCL --> UC1.3
-UCL --> UC1.4
-UCL --> UC1.5
-UCL --> UC1.6
-UCL --> UC1.7
-UCL --> UC1.8
-UCL --> UC1.9
-UCL --> UC1.10
-UCL --> UC1.11
-UCL --> UC1.13
-UCL --> UC1.14
-UCL --> UC1.15
-UCL --> UC1.16
-UCL --> UC1.17
-UCL --> UC1.18
-UCL --> UC1.19
-UCL --> UC1.20
+UCL -- UC1.1
+UCL -- UC1.2
+UCL -- UC1.3
+UCL -- UC1.4
+UCL -- UC1.5
+UCL -- UC1.6
+UCL -- UC1.7
+UCL -- UC1.8
+UCL -- UC1.9
+UCL -- UC1.10
+UCL -- UC1.11
+UCL -- UC1.13
+UCL -- UC1.14
+UCL -- UC1.15
+UCL -- UC1.16
+UCL -- UC1.17
+UCL -- UC1.18
+UCL -- UC1.19
+UCL -- UC1.20
 
-AS --> UC1.6
-AS --> UC1.20
-AS --> UC1.21
+AS -- UC1.6
+AS -- UC1.20
+AS -- UC1.21
 
-ADM --> UC1.21
+ADM -- UC1.21
 
 @enduml
