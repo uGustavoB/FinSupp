@@ -96,8 +96,8 @@ Os requisitos funcionais são descritos a seguir.
 | [RF9001] | Eu gostaria de poder alternar entre o tema claro e escuro, para que o sistema tenha melhor conforto visual.                                                                      | Usuários do Sistema |
 | [RF9002] | Eu gostaria que o sistema ofertasse os modos de acessibilidade para daltonismo, leitura de tela e controle por voz; para que eu possa alternar entre eles.                       | Usuários do Sistema |
 | [RF9006] | Eu gostaria de poder personalizar a ordem e a visibilidade dos elementos no meu painel principal (dashboard) para ter as informações que considero mais importantes em destaque. | Usuários do Sistema |
-| [RF9007] | Eu gostaria que os gráficos financeiros fossem interativos e permitissem a exploração de dados (ex: clicar em uma barra para ver detalhes).                                      | Usuários do Sistema |
-| [RF9008] | Eu gostaria que o sistema permitisse ajustar o tamanho da fonte para melhorar a legibilidade de acordo com minhas preferências.                                                  | Usuários do Sistema |
+| [RF9007] | Eu gostaria de poder interagir com os gráficos financeiros (ex: passar o cursor sobre um gráfico para ver detalhes).                                                             | Usuário Cliente     |
+| [RF9008] | Eu gostaria que o sistema ofertasse as seguintes opções para visualização de dados: lista e grade.                                                                               | Usuários do Sistema |
 | [RF9009] | Eu gostaria que o sistema tivesse um design adaptável que se ajustasse automaticamente a diferentes orientações de tela (retrato/paisagem).                                      | Usuários do Sistema |
 | [RF9010] | Eu gostaria que o sistema fornecesse confirmations visuais antes de ações destrutivas (ex: exclusão de conta/transação).                                                         | Usuários do Sistema |
 
