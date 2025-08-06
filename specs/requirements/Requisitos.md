@@ -98,8 +98,6 @@ Os requisitos funcionais são descritos a seguir.
 | [RF9006] | Eu gostaria de poder personalizar a ordem e a visibilidade dos elementos no meu painel principal (dashboard) para ter as informações que considero mais importantes em destaque. | Usuários do Sistema |
 | [RF9007] | Eu gostaria de poder interagir com os gráficos financeiros (ex: passar o cursor sobre um gráfico para ver detalhes).                                                             | Usuário Cliente     |
 | [RF9008] | Eu gostaria que o sistema ofertasse as seguintes opções para visualização de dados: lista e grade.                                                                               | Usuários do Sistema |
-| [RF9009] | Eu gostaria que o sistema tivesse um design adaptável que se ajustasse automaticamente a diferentes orientações de tela (retrato/paisagem).                                      | Usuários do Sistema |
-| [RF9010] | Eu gostaria que o sistema fornecesse confirmations visuais antes de ações destrutivas (ex: exclusão de conta/transação).                                                         | Usuários do Sistema |
 
 ## Requisitos Não Funcionais (RNF)
 
@@ -128,3 +126,5 @@ Os requisitos funcionais são descritos a seguir.
 | [RNF0021] | O sistema deve realizar validação de entrada de dados em todas as interfaces de usuário e APIs para prevenir dados inválidos ou maliciosos.                                    |
 | [RNF0022] | Eu gostaria que o sistema apresentasse ícones e elementos visuais claros e autoexplicativos para facilitar a navegação.                                                        |
 | [RNF0023] | Eu gostaria que o sistema fornecesse feedback visual imediato para todas as ações do usuário (ex: um "check" verde após salvar, um botão desabilitado durante o carregamento). |
+| [RNF0024] | Eu gostaria que o sistema tivesse um design adaptável que se ajustasse automaticamente a diferentes orientações de tela (retrato/paisagem).                                    |
+| [RNF0025] | Eu gostaria que o sistema fornecesse confirmations visuais antes de ações destrutivas (ex: exclusão de conta/transação).                                                       |
