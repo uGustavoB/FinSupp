@@ -1,0 +1,2 @@
+# Alternar entre temas
+Ao acessar o sistema, em qualquer página, no topo estará disponível um botão para que o ator clique e troque para o tema escuro caso esteja claro ou troque para o tema claro caso esteja escuro.
