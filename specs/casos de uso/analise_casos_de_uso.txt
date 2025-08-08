@@ -23,7 +23,7 @@ rectangle "Sistema de Gerenciamento Financeiro" {
     usecase "Receber alertas" as UC1.5
     usecase "Exportar relatórios" as UC1.6
     usecase "Programar despesas recorrentes" as UC1.7
-    usecase "Definir metas" as UC1.8
+    usecase "Manter metas" as UC1.8
     usecase "Visualizar painel de resumo financeiro" as UC1.9
     usecase "Marcar transações" as UC1.10
     usecase "Manter orçamentos" as UC1.11

@@ -1,5 +1,3 @@
-
-
 # Manter categorias
 
 ## Cadastrar categoria
