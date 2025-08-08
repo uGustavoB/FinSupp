@@ -1,0 +1,81 @@
+@startuml
+skinparam actorStyle awesome
+skinparam usecase {
+    BackgroundColor #EEEBDC
+    BorderColor #2C3E50
+    ArrowColor #2C3E50
+}
+skinparam actor {
+    BorderColor #2C3E50
+}
+skinparam note {
+    BackgroundColor #F3F3F3
+    BorderColor #505050
+}
+
+title Diagrama de Casos de Uso - Gerenciamento de Conta 
+left to right direction
+
+actor "Usuário Cliente" as Cliente
+actor "Atendente de Suporte" as Suporte
+actor "Administrador" as Admin
+actor "Usuário do Sistema" as UsuarioSistema
+actor "Entidades Financeiras" as Banco << Sistema Externo >>
+
+UsuarioSistema <|-- Cliente
+UsuarioSistema <|-- Suporte
+UsuarioSistema <|-- Admin
+
+rectangle "Sistema de Gerenciamento de Conta" {
+    
+    usecase "Efetuar Login" as UC_Login
+    usecase "Manter Dados de Login" as UC01
+    usecase "Recuperar Acesso à Conta" as UC02
+        
+    usecase "Visualizar Histórico da Conta" as UC05
+    usecase "Associar Contas Bancárias" as UC06
+    usecase "Importar Dados Financeiros" as UC07
+    usecase "Editar Perfil" as UC08
+    usecase "Compartilhar Acesso à Conta" as UC09
+    usecase "Solicitar Suporte Técnico" as UC10
+    usecase "Entrar com Biometria" as UC12
+    usecase "Gerenciar Acesso Biométrico" as UC13
+    usecase "Redefinir Senha" as UC18
+        
+    usecase "Gerenciar Tickets de Suporte" as UC11
+    usecase "Acessar Contato de Emergência" as UC15
+    usecase "Visualizar Histórico de Login" as UC16
+    usecase "Enviar Mensagem Direta" as UC17
+    
+    usecase "Suspender Acesso de Usuário" as UC14
+}
+
+UsuarioSistema -- UC_Login
+UsuarioSistema -- UC01
+UsuarioSistema -- UC02
+
+Cliente -- UC05
+Cliente -- UC06
+Cliente -- UC07
+Cliente -- UC08
+Cliente -- UC09
+Cliente -- UC10
+Cliente -- UC13
+Cliente -- UC18
+
+Suporte -- UC08
+Suporte -- UC11
+Suporte -- UC15
+Suporte -- UC16
+
+Admin -- UC05
+Admin -- UC14
+
+UC07 -- Banco
+
+UC12 .> UC_Login : <<extend>>
+UC11 .> UC17 : <<include>>
+
+UC02 .> UC18 : <<include>>
+
+@enduml
