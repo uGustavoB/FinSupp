@@ -1,5 +1,11 @@
 # Gerenciar Tickets de Suporte
 
+- **Ator Principal:** Atendente de Suporte
+- **Atores Secundários:** Usuário Cliente
+- **Resumo:** Descreve o processo de gerenciamento de um chamado de suporte, desde sua criação pelo cliente, passando pela análise e comunicação, até sua resolução final.
+
+---
+
 ## Cenário 1: Cliente cria um novo ticket de suporte
 
 - Ator (Usuário Cliente) está com uma dúvida ou problema no sistema.
@@ -19,11 +25,9 @@
 - Ele visualiza a fila de tickets com status "Aberto".
 - Ele abre o Ticket #854321 para começar a trabalhar nele.
 - O sistema automaticamente atribui o ticket ao atendente e atualiza o status para "Em Andamento".
-- O atendente lê a descrição do problema.
-- **(Início do <<include>> "Enviar Mensagem Direta")**
-- Ele utiliza a funcionalidade de mensagem direta dentro do ticket para se comunicar com o cliente, solicitando mais informações (conforme detalhado na especificação de "Enviar Mensagem Direta").
-- O status do ticket alterna entre "Em Andamento" e "Aguardando Resposta do Cliente" conforme a conversa progride.
-- **(Fim do <<include>>) **
+- O atendente lê a descrição do problema e conclui que precisa solicitar mais informações ao cliente.
+- Ele então utiliza a funcionalidade de mensagem direta dentro do ticket para se comunicar com o cliente (conforme detalhado na especificação de "Enviar Mensagem Direta").
+- Após enviar a pergunta, o status do ticket alterna para "Aguardando Resposta do Cliente".
 
 ## Cenário 3: Atendente resolve e fecha o ticket
 
