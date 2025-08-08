@@ -1,53 +1,32 @@
-# UC_Login - Efetuar Login no Sistema
+# Efetuar Login no Sistema
 
-### 1. Breve Descrição
+- Ator acessa a página de login do sistema.
+- Ele verifica que o título da página é "Login" e que existem campos para "E-mail" e "Senha".
+- Ele observa que há um link para "Esqueceu sua senha?" caso precise recuperar o acesso.
+- Ele também nota que há um botão visível para "Entrar".
 
-Este caso de uso permite que um usuário do sistema acesse sua conta de forma segura. O método principal de acesso é através de credenciais padrão (e-mail e senha). Alternativamente, se o recurso estiver habilitado, o usuário pode se autenticar utilizando a biometria de seu dispositivo (leitor de digital ou reconhecimento facial).
+## Cenário 1: Login bem-sucedido com E-mail e Senha
 
-### 2. Atores
+- Ator deseja acessar sua conta para gerenciar suas finanças.
+- Ele preenche o campo "E-mail" com seu endereço de e-mail cadastrado e o campo "Senha" com sua senha correta.
+- Em seguida, clica no botão "Entrar".
+- O sistema valida as credenciais com sucesso.
+- O sistema o redireciona para a página principal (Dashboard), onde ele pode ver um resumo de suas contas.
+- O ator verifica que seu nome de usuário é exibido no topo da página, confirmando que o login foi realizado com sucesso.
 
-- Usuário do Sistema.
+## Cenário 2: Login bem-sucedido com Biometria
 
-### 3. Pré-condições
+- Ator, que já habilitou o login por biometria em seu perfil, acessa a página de login pelo seu celular.
+- Ele observa que, ao lado do botão "Entrar", existe um ícone ou botão para "Entrar com Biometria".
+- Ele toca no botão para "Entrar com Biometria".
+- O sistema operacional do seu dispositivo solicita a autenticação através do sensor biométrico (leitor de digital ou reconhecimento facial).
+- O ator realiza a autenticação biométrica com sucesso.
+- O sistema valida a identidade e o redireciona imediatamente para a página principal (Dashboard).
 
-- O ator não deve estar autenticado no sistema.
-- O ator deve possuir uma conta de usuário válida e ativa no sistema.
+## Cenário 3: Tentativa de login com credenciais inválidas
 
-### 4. Pós-condições
-
-- O ator é autenticado com sucesso no sistema.
-- O sistema cria uma sessão de usuário segura.
-- O ator é redirecionado para a sua página principal (Dashboard).
-
-### 5. Fluxo Básico (Login com E-mail e Senha)
-
-| Passo | Ação |
-| :--- | :--- |
-| 1 | O ator acessa a página de login do sistema. |
-| 2 | O sistema exibe os campos para "E-mail" e "Senha", um botão "Entrar" e um link para "Esqueceu sua senha?". |
-| 3 | O ator preenche seu e-mail e senha cadastrados nos campos correspondentes. |
-| 4 | O ator seleciona a opção (clica no botão) "Entrar". |
-| 5 | O sistema valida as credenciais fornecidas. (Ver **E1** para credenciais inválidas). |
-| 6 | O sistema autentica o ator, inicia a sessão e o redireciona para a página principal (Dashboard). O caso de uso termina. |
-
-### 6. Fluxos Alternativos
-
-- **A1: Login com Biometria**
-    - **Pré-condição:** O ator deve ter habilitado previamente o acesso por biometria em sua conta.
-    1.  No passo 2 do Fluxo Básico, o sistema também exibe um botão ou ícone para "Entrar com Biometria".
-    2.  O ator seleciona a opção "Entrar com Biometria".
-    3.  O sistema solicita a autenticação através do sensor biométrico do dispositivo do ator. (Ver **E2** para falha na autenticação).
-    4.  O ator realiza a autenticação com sucesso em seu dispositivo.
-    5.  O sistema valida a identidade do ator, inicia a sessão e o redireciona para a página principal (Dashboard). O caso de uso termina.
-
-### 7. Fluxos de Exceção
-
-- **E1: Credenciais Inválidas**
-    1.  No passo 5 do Fluxo Básico, se o sistema detectar que a combinação de e-mail e senha está incorreta, ele bloqueará o login.
-    2.  O sistema exibirá uma mensagem de erro destacada, como "E-mail ou senha inválidos."
-    3.  O sistema limpará o campo de senha para uma nova tentativa, mantendo o e-mail preenchido. O caso de uso retorna ao passo 3.
-
-- **E2: Falha na Autenticação Biométrica**
-    1.  No passo 3 do Fluxo Alternativo A1, se a autenticação biométrica do dispositivo falhar ou for cancelada pelo ator:
-    2.  O sistema exibirá uma mensagem de erro, como "Autenticação biométrica falhou."
-    3.  O sistema permitirá que o ator tente novamente a biometria ou retorne à tela para usar o método de login com e-mail e senha.
+- Ator tenta acessar o sistema, mas não tem certeza da sua senha.
+- Ele preenche o campo "E-mail" corretamente, mas digita uma senha incorreta no campo "Senha".
+- Ele clica no botão "Entrar".
+- O sistema recarrega a página de login e exibe uma mensagem de erro destacada, como "E-mail ou senha inválidos."
+- O ator nota que o campo de senha está vazio, pronto para uma nova tentativa, enquanto o campo de e-mail permanece preenchido para sua conveniência.
