@@ -1,0 +1,3 @@
+# Personalizar fomato de visualização de dados
+Nas telas em que aparecem uma sequência de dados agrupados terá dois botões lado a lado para que o ator clique e mude a forma como os dados são exibidos: grade e lista. Ao clicar no botão de lista
+os dados serão exibidos um abaixo do outro. Ao clicar no botão de grade os dados serão exibidos numa disposição N x 3, em que 3 será a quantidade de colunas e N será a quantidade de linhas.
