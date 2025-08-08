@@ -1,39 +1,61 @@
-# Gerenciar Acesso Biométrico
+# UC13 - Gerenciar Acesso Biométrico
 
-- Ator (Usuário Cliente) já está logado no sistema e acessa a área de "Meu Perfil" ou "Configurações de Segurança".
-- Ele encontra a seção "Acesso Biométrico".
-- Ele observa que há uma breve descrição da funcionalidade e um botão ou interruptor (toggle) para habilitar ou desabilitar o recurso.
+### 1. Breve Descrição
 
-## Cenário 1: Habilitar o Acesso Biométrico pela Primeira Vez
+Este caso de uso permite que um Usuário Cliente, que esteja utilizando um dispositivo compatível, habilite ou desabilite a capacidade de se autenticar no sistema usando a biometria nativa do dispositivo (como leitor de digital ou reconhecimento facial). A habilitação do recurso exige que o usuário confirme sua identidade através da senha atual, como medida de segurança.
 
-- Ator deseja ativar o login por biometria para não precisar mais digitar sua senha.
-- Ele clica no botão para "Habilitar Acesso Biométrico".
-- O sistema, por segurança, solicita que ele confirme sua identidade digitando sua senha atual e clica em "Confirmar".
-- O sistema valida a senha.
-- Após a validação, o sistema solicita que o ator interaja com o sensor biométrico do dispositivo (celular ou computador) para registrar e associar sua biometria à conta.
-- O ator realiza a autenticação biométrica com sucesso.
-- O sistema exibe uma mensagem de confirmação, como: "Acesso biométrico habilitado com sucesso! No seu próximo login, você poderá entrar usando sua biometria."
-- O status da funcionalidade na tela de configurações agora aparece como "Habilitado".
+### 2. Atores
 
-## Cenário 2: Desabilitar o Acesso Biométrico
+- Usuário Cliente.
 
-- Ator deseja voltar a usar apenas a senha para acessar sua conta.
-- Ele acessa a seção "Acesso Biométrico", que no momento está marcada como "Habilitado".
-- Ele clica no botão para "Desabilitar Acesso Biométrico".
-- O sistema exibe uma caixa de diálogo pedindo confirmação, com a mensagem: "Você tem certeza que deseja desabilitar o acesso por biometria?".
-- O ator clica no botão "Sim, desabilitar".
-- O sistema processa a solicitação e exibe uma mensagem de sucesso: "Acesso biométrico desabilitado."
-- O status da funcionalidade na tela de configurações agora aparece como "Desabilitado".
+### 3. Pré-condições
 
-## Cenário 3: Tentativa de Habilitação com Senha Incorreta
+- O ator deve estar autenticado no sistema.
 
-- Ator tenta habilitar o acesso biométrico, conforme o Cenário 1.
-- No momento de confirmar sua identidade, ele digita sua senha de forma incorreta.
-- O sistema exibe uma mensagem de erro, como: "A senha informada está incorreta. Por favor, tente novamente."
-- O processo é interrompido, e o acesso biométrico permanece desabilitado.
+### 4. Pós-condições
 
-## Cenário 4: Dispositivo sem Suporte à Biometria
+- A preferência de acesso biométrico do ator é atualizada no sistema (habilitada ou desabilitada).
 
-- Ator acessa as configurações a partir de um dispositivo que não possui leitor biométrico (um computador desktop antigo, por exemplo).
-- Na seção "Acesso Biométrico", o sistema exibe uma mensagem informativa, como: "Seu dispositivo atual não possui suporte para biometria. Esta função só pode ser gerenciada a partir de um aparelho compatível."
-- O botão para habilitar a funcionalidade aparece desativado (cinza).
+### 5. Fluxo Básico (Habilitar Acesso Biométrico)
+
+| Passo | Ação |
+| :--- | :--- |
+| 1 | O ator, logado no sistema, navega para a área de "Meu Perfil" ou "Configurações de Segurança". |
+| 2 | O sistema exibe a seção "Acesso Biométrico", indicando o status atual (ex: Desabilitado). (Ver **A2** para dispositivo incompatível). |
+| 3 | O ator seleciona a opção para habilitar o acesso biométrico. |
+| 4 | O sistema, como medida de segurança, solicita que o ator confirme sua identidade digitando sua senha atual. |
+| 5 | O ator insere sua senha correta e seleciona a opção "Confirmar". |
+| 6 | O sistema valida a senha. (Ver **E1** para senha incorreta). |
+| 7 | O sistema solicita, através do navegador ou sistema operacional, que o ator interaja com o sensor biométrico do dispositivo. |
+| 8 | O ator realiza a autenticação biométrica com sucesso. (Ver **E2** para falha na autenticação). |
+| 9 | O sistema associa o registro biométrico à conta do ator. |
+| 10| O sistema exibe a mensagem "Acesso biométrico habilitado com sucesso!" e atualiza o status na tela para "Habilitado". O caso de uso termina. |
+
+### 6. Fluxos Alternativos
+
+- **A1: Desabilitar o Acesso Biométrico**
+    - **Pré-condição:** O acesso biométrico deve estar previamente habilitado.
+    1.  No passo 2 do Fluxo Básico, o sistema exibe o status como "Habilitado".
+    2.  O ator seleciona a opção para desabilitar o acesso biométrico.
+    3.  O sistema exibe uma caixa de diálogo solicitando confirmação: "Você tem certeza que deseja desabilitar o acesso por biometria?".
+    4.  O ator confirma a ação.
+    5.  O sistema remove a associação biométrica da conta do ator.
+    6.  O sistema exibe a mensagem "Acesso biométrico desabilitado." e atualiza o status na tela. O caso de uso termina.
+
+- **A2: Dispositivo sem Suporte à Biometria**
+    1.  No passo 2 do Fluxo Básico, se o sistema detectar que o dispositivo atual do ator não possui suporte à biometria:
+    2.  O sistema exibirá a opção para habilitar "Acesso Biométrico" desativada (em cinza).
+    3.  O sistema exibirá uma mensagem informativa, como: "Seu dispositivo atual não possui suporte para biometria. Esta função só pode ser gerenciada a partir de um aparelho compatível."
+    4.  O caso de uso termina.
+
+### 7. Fluxos de Exceção
+
+- **E1: Confirmação de senha incorreta**
+    1.  No passo 6 do Fluxo Básico, se o ator inserir a senha atual incorretamente, o sistema bloqueará a continuação.
+    2.  O sistema exibirá a mensagem "A senha informada está incorreta. Por favor, tente novamente."
+    3.  O processo de habilitação é interrompido e o caso de uso retorna ao passo 5.
+
+- **E2: Falha na Autenticação Biométrica no Dispositivo**
+    1.  No passo 8 do Fluxo Básico, se a autenticação biométrica no dispositivo falhar (ex: digital não reconhecida) ou for cancelada pelo ator:
+    2.  O sistema exibirá uma mensagem de erro, como "Não foi possível registrar a biometria. Por favor, tente novamente."
+    3.  O processo de habilitação é interrompido.
