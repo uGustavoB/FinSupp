@@ -1,7 +1,6 @@
 # Visualizar Gráfico Comparativo
 
 - Ator acessa o sistema e visualiza a Dashboard principal após realizar o login.
-
 - Ele verifica que há um gráfico comparativo de gastos exibido na tela inicial, com o título "Gastos Comparativos por Período".
 - O gráfico é gerado automaticamente com o período padrão, onde:
     - A data inicial corresponde ao mês atual (ex: 01/07/2025 a 31/07/2025)
