@@ -1,0 +1,315 @@
+@startuml
+' ==== CLASSE BASE DE USUÁRIOS ====
+class Usuario {
+    - int id
+    - String nome
+    - String email
+    - String senha
+    - String tipo
+}
+
+class Cliente {
+    - ContatoEmergencia contatoEmergencia
+    + void gerenciarConta(ContaBancaria conta, boolean boolean)
+
+
+}
+class AtendenteSuporte {
+    - String cargo
+
+    + boolean autenticar(String senha)
+}
+class Administrador
+
+
+' ==== ENTIDADES PRINCIPAIS ====
+
+class Assinatura {
+    - int id
+    - String descricao
+    - double valorMensal
+    - EnumFrequencia frequencia
+    - Conta conta
+    - Date dataInicio
+    - Date dataFim
+    - String observacoes
+
+    + static Assinatura criar(String descricao, double valorMensal, EnumFrequencia frequencia , Conta conta, Date dataInicio, Date dataFim, String observacoes)
+    + void editar(String descricao, double valorMensal, String recorrencia, Conta conta, Date dataFim, String observacoes)
+    + void excluir(int id)
+    + static List<Assinatura> listar(String filtro)
+
+}
+
+class Cartao {
+    - int id
+    - String nome
+    - Conta conta
+    - double limiteMaximo
+    - double limiteEmUso
+    - String tipo
+
+    + static Cartao criar(String nome, Conta conta, double limite, String tipo)
+    + void editar(String nome, double limite, String tipo, Conta conta)
+    + void excluir(int id)
+    + static List<Cartao> listar(String filtro)
+
+}
+
+class Categoria {
+    - int id
+    - String nome
+
+    + static List<Categoria> listar(String filtro)
+    + static Categoria buscarPorId(int id)
+    + static Categoria criar(String nome)
+    + void editar(String novoNome)
+    + void excluir(int id)
+}
+
+class Meta {
+    - int id
+    - Categoria categoria
+    - double valorMeta
+    - double valorGasto
+    - String status // Verde, Amarelo, Vermelho
+
+    + static Meta criar(Categoria categoria, double valorMeta)
+    + void editar(double novoValorMeta)
+    + void excluir(int id)
+    + static List<Meta> listar(String filtro)
+
+}
+
+class Conta {
+    - int id
+    - String nome
+    - String banco
+
+    + static List<Conta> listar(String filtro)
+    + static Conta buscarPorId(int id)
+    + static Conta criar(String nome, String banco)
+    + void editar(String nome, String banco)
+    + void excluir(int id)
+}
+
+class Orcamento {
+    - int id
+    - String nome
+    - double valorTotalEstimado
+    - Date dataInicio
+    - Date dataTermino
+    - Categoria categoria
+    - String prioridade
+    - String descricaoOpcional
+
+    + static Orcamento criar(String nome, double valorTotalEstimado, Date dataInicio, Date dataTermino, Categoria categoria, String prioridade, String descricaoOpcional)
+    + void editar(String nome, double valorTotalEstimado, Date dataInicio, Date dataTermino, Categoria categoria, String prioridade, String descricaoOpcional)
+    + void excluir(int id)
+    + static List<Orcamento> listar(String filtro)
+
+}
+
+
+
+
+
+class Notificacao {
+    - int id
+    - Cliente usuario
+    - String mensagem
+    - Date dataCriacao
+    - boolean lida
+
+    + static List<Notificacao> listarNaoLidas(Cliente usuario)
+    + void marcarComoLida()
+    + static void criarNotificacao(Cliente usuario, String mensagem)
+}
+
+class Fatura {
+    - int id
+    - Cartao cartao
+    - Date mesReferencia
+    - Date dataVencimento
+    - double valorTotal
+
+    + static Fatura buscarPorCartaoEMes(Cartao cartao, Date mesReferencia)
+    + static Fatura criar(Cartao cartao, Date mesReferencia, Date dataVencimento, double valorInicial)
+    + void atualizarValorTotal(double valorParcela)
+}
+
+
+
+
+class Transacao {
+    - int id
+    - EnumTipo tipo
+    - Date dataTransacao
+    - double valor
+    - Categoria categoria
+    - Conta contaOrigem
+    - Conta contaDestino
+    - String descricao
+    - EnumStatus status
+    - boolean despesaRecorrente
+    - EnumFrequencia frequencia
+    - Date dataTerminoRecorrencia
+    - Fatura fatura
+
+    + void definirStatus(EnumStatus status)
+    + static List<Transacao> listarPendentes(String tipo)
+    + static Transacao criar(EnumTipo tipo, Date dataTransacao, double valor, Categoria categoria, Conta contaOrigem, Conta contaDestino, String descricao, boolean despesaRecorrente, EnumFrequencia frequencia, Date dataTerminoRecorrencia, Fatura fatura)
+    + void editar(...)
+    + void cancelarRecorrencia()
+    + void processarTransferencia()
+}
+
+
+class CalendarioFinanceiro {
+    - Date mesAtual
+    - Categoria filtroCategoria
+    - Conta filtroConta
+
+    + void carregarMes(Date mes)
+    + List<Transacao> obterTransacoesDoDia(Date dia)
+    + void aplicarFiltroCategoria(Categoria categoria)
+    + void aplicarFiltroConta(Conta conta)
+    + void limparFiltros()
+    + Map<Date, List<Transacao>> obterIndicadoresMes()
+}
+
+class DashboardFinanceira {
+    - Date periodoInicio
+    - Date periodoFim
+    - Conta filtroConta
+    - Categoria filtroCategoria
+    - EnumTipoGrafico tipoGrafico
+
+    + Map<Categoria, Double> gerarDadosDespesasPorCategoria()
+    + Map<Categoria, Integer> contarTransacoesPorCategoria()
+    + double calcularTotalDespesas()
+    + Categoria categoriaMaiorGasto()
+    + Categoria categoriaMenorGasto()
+    + void aplicarFiltros(Date inicio, Date fim, Conta conta, Categoria categoria, EnumTipoGrafico tipoGrafico)
+    + void resetarFiltros()
+}
+
+class Relatorio {
+    - Date dataInicio
+    - Date dataFim
+    - Conta conta
+    - Categoria categoria
+    - Integer quantidadeParcelas
+    - String descricao
+    - EnumFormato formato
+    - List<Transacao> transacoes
+    - Map<Categoria, Double> totaisPorCategoria
+
+    + Relatorio(Date dataInicio, Date dataFim, Conta conta, Categoria categoria, Integer quantidadeParcelas, String descricao, EnumFormato formato)
+    + void gerar()
+    + void exportarPDF()
+    + void exportarCSV()
+    + void gerarGraficoPizza()
+}
+
+class ContatoEmergencia {
+    - String telefoneSecundario
+    - String emailAlternativo
+    - Date dataCadastro
+
+    + ContatoEmergencia(String telefoneSecundario, String emailAlternativo)
+    + boolean existeContato()
+    + String getTelefone()
+    + String getEmail()
+}
+
+
+class Auditoria {
+    - String idLog
+    - String idAtendente
+    - String idCliente
+    - Date dataHora
+    - String acao
+    - String motivo
+    - String status
+
+    + void registrar(String idAtendente, String idCliente, String acao, String motivo, String status)
+}
+
+
+class ControleAcesso {
+    + boolean solicitarReautenticacao(AtendenteSuporte atendente)
+    + boolean validarMotivo(String motivo)
+    + void bloquearAcesso(String idAtendente, String idCliente, String motivo)
+}
+
+
+
+
+' ==== ENUMS ====
+
+enum EnumTipoGrafico {
+    PIZZA
+    BARRA
+    LINHA
+}
+
+enum EnumTipo {
+    DESPESA
+    RECEITA
+    TRANSFERENCIA
+}
+
+enum EnumStatus {
+    PENDENTE
+    PAGA
+    RECEBIDA
+}
+
+enum EnumFrequencia {
+    MENSAL
+    SEMANAL
+    ANUAL
+    PERSONALIZADO
+}
+
+' ==== RELACIONAMENTOS ====
+
+Usuario <|-- Cliente
+Usuario <|-- AtendenteSuporte
+Usuario <|-- Administrador
+
+
+Cartao --> Fatura : "possui >"
+
+Transacao <.. DashboardFinanceira
+Categoria <.. DashboardFinanceira
+Conta <.. DashboardFinanceira
+
+Transacao <.. CalendarioFinanceiro
+Categoria <.. CalendarioFinanceiro
+Conta <.. CalendarioFinanceiro
+
+Conta --> Transacao
+Cliente --> Transacao : "gerencia >"
+Categoria --> Transacao
+
+
+
+Cliente --> Notificacao : "recebe >"
+
+
+Conta --> Transacao
+Categoria --> Transacao
+Cliente --> Transacao : "gerencia >"
+
+Cliente --> Orcamento
+Orcamento --> Categoria
+
+Meta --> Categoria
+Cliente --> Assinatura : "gerencia >"
+Cliente --> Conta : "possui >"
+Conta --> Cartao: "possui >"
+Cliente --> Meta : "define >"
+Cliente --> Categoria : "organiza >"
+@enduml
