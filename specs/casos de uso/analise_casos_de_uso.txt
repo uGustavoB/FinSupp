@@ -15,6 +15,60 @@ US <|-- EF
 UCM <|-- AS
 UCM <|-- UCL
 
+' Sistema de Gerenciamento de Conta
+rectangle "Sistema de Gerenciamento de Conta" {
+
+    usecase "Efetuar Login" as UC0.1
+    usecase "Manter Dados de Login" as UC0.2
+    usecase "Recuperar Acesso à Conta" as UC0.3
+
+    usecase "Visualizar Histórico da Conta" as UC0.4
+    usecase "Associar Contas Bancárias" as UC0.5
+    usecase "Importar Dados Financeiros" as UC0.6
+    usecase "Editar Perfil" as UC0.7
+    usecase "Compartilhar Acesso à Conta" as UC0.8
+    usecase "Solicitar Suporte Técnico" as UC0.9
+    usecase "Entrar com Biometria" as UC0.10
+    usecase "Gerenciar Acesso Biométrico" as UC0.11
+    usecase "Redefinir Senha" as UC0.12
+
+    usecase "Gerenciar Tickets de Suporte" as UC0.13
+    usecase "Acessar Contato de Emergência" as UC0.14
+    usecase "Visualizar Histórico de Login" as UC0.15
+    usecase "Enviar Mensagem Direta" as UC0.16
+
+    usecase "Suspender Acesso de Usuário" as UC0.17
+}
+
+US -- UC0.1
+US -- UC0.2
+US -- UC0.3
+
+UCL -- UC0.4
+UCL -- UC0.5
+UCL -- UC0.6
+UCL -- UC0.7
+UCL -- UC0.8
+UCL -- UC0.9
+UCL -- UC0.11
+UCL -- UC0.12
+
+AS -- UC0.7
+AS -- UC0.13
+AS -- UC0.14
+AS -- UC0.15
+
+ADM -- UC0.4
+ADM -- UC0.17
+
+UC0.6 -- EF
+
+UC0.10 .> UC0.1 : <<extend>>
+UC0.13 .> UC0.16 : <<include>>
+
+UC0.3 .> UC0.12 : <<include>>
+
+' Sistema de Gerenciamento Financeiro
 rectangle "Sistema de Gerenciamento Financeiro" {
     usecase "Visualizar conta" as UC1.1
     usecase "Visualizar entradas e saídas" as UC1.2
@@ -72,5 +126,24 @@ AS -- UC1.20
 AS -- UC1.21
 
 ADM -- UC1.21
+
+' Design
+rectangle "Design" {
+    usecase "Alterar entre temas" as UC9.1
+    usecase "Alterar entre modos de acessibilidade" as UC9.2
+    usecase "Personalizar ordem do dashboard" as UC9.3
+    usecase "Alternar visibilidade no dashboard" as UC9.4
+    usecase "Escolher formato de visualização de dados" as UC9.5
+    usecase "Interagir com gráficos" as UC9.6
+}
+
+US -- UC9.1
+US -- UC9.2
+US -- UC9.3
+US -- UC9.4
+US -- UC9.5
+
+UCL -- UC9.6
+
 
 @enduml
