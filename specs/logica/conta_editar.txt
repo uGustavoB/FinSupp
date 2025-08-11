@@ -1,0 +1,23 @@
+@startuml
+
+start
+:Receber novos dados (nome, banco, numeroConta);
+:Validar dados de entrada (campos não podem ser vazios);
+
+if (Dados de entrada são válidos?) then (Sim)
+    :Verificar se os novos dados já existem em outra conta do mesmo cliente;
+    if (Já existe outra conta com estes dados?) then (Sim)
+        :Retornar erro "Já existe outra conta com estes dados";
+    else (Não)
+        :Atualizar os atributos do objeto Conta atual com os novos dados;
+        :Salvar as alterações da conta no banco de dados;
+        :Registrar log de alteração;
+        :Retornar "Conta atualizada com sucesso";
+    endif
+else (Não)
+    :Retornar erro "Dados inválidos";
+endif
+
+stop
+
+@enduml
