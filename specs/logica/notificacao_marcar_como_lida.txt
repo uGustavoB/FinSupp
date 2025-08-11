@@ -1,0 +1,14 @@
+@startuml
+start
+
+:Usuário seleciona uma notificação;
+:Sistema recebe a seleção;
+
+if (Notificação já está lida?) then (sim)
+  stop
+else (não)
+  :Sistema atualiza o status da notificação para "lida";
+endif
+
+stop
+@enduml

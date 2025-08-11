@@ -1,0 +1,23 @@
+@startuml
+title Diagrama de Atividades: Editar Meta
+
+start
+
+:Recebe parâmetros de entrada (ID da meta, novos dados);
+
+if (Parâmetros válidos?) then (não)
+  :Lança erro: "Parâmetros inválidos.";
+  stop
+endif
+
+if (Meta já existe?) then (não)
+  :Lança erro: "Meta não encontrada.";
+  stop
+endif
+
+:Atualiza os dados da meta com as novas informações;
+:Salva as alterações da meta no banco de dados;
+:Retorna o objeto da meta atualizada;
+
+stop
+@enduml

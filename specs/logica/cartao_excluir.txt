@@ -1,0 +1,27 @@
+@startuml
+start
+
+:Recebe o ID do cartão a ser excluído;
+
+if (ID válido?) then (não)
+  :Lança erro: "ID do cartão inválido.";
+  stop
+endif
+
+:Busca o cartão pelo ID;
+if (Cartão encontrado?) then (não)
+  :Lança erro: "Cartão não encontrado.";
+  stop
+endif
+
+:Verifica se o cartão está associado a alguma transação ou assinatura;
+if (Transações ou assinaturas associadas?) then (sim)
+  :Lança erro: "Não é possível excluir cartão com transações ou assinaturas associadas.";
+  stop
+endif
+
+:Remove o cartão do banco de dados;
+:Retorna status de sucesso;
+
+stop
+@enduml

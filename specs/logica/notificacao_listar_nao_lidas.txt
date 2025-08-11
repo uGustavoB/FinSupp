@@ -1,0 +1,20 @@
+@startuml
+start
+
+:Usuário solicita visualizar notificações;
+:Sistema busca por novas notificações;
+
+if (Há notificações não lidas?) then (sim)
+  :Lista as notificações não lidas;
+  :Usuário clica em uma notificação;
+  :Marca a notificação como lida;
+  :Exibe os detalhes da notificação selecionada;
+else (não)
+  :Exibe a mensagem "Não há novas notificações.";
+endif
+
+:Usuário retorna para a tela inicial;
+
+stop
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+title Diagrama de Atividades: Listar Metas
+
+start
+
+:Recebe parâmetros de entrada (opcional: termo de busca);
+
+if (Existe termo de busca?) then (sim)
+  :Filtra as metas com base no termo de busca;
+  :Retorna a lista de metas filtrada;
+else (não)
+  :Retorna a lista completa de metas;
+endif
+
+stop
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+title Diagrama de Atividades: obterTransacoesDoDia
+
+start
+
+:Recebe parâmetros de entrada;
+
+:Valida o parâmetro de entrada;
+if (Parâmetro é valido?) then (não)
+  :Lança erro: "Data inválida para a busca.";
+  stop
+endif
+
+:Busca todas as transações (entradas e saídas) na data especificada;
+if (Transações encontradas?) then (não)
+  :Retorna uma lista vazia;
+else (sim)
+  :Retorna a lista de transações encontradas;
+endif
+
+stop
+@enduml

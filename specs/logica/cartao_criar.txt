@@ -1,0 +1,27 @@
+@startuml
+start
+
+:Recebe parâmetros de entrada (nome, conta, limite, tipo);
+
+if (Parâmetros válidos?) then (não)
+  :Lança erro: "Parâmetros inválidos.";
+  stop
+endif
+
+if (Conta existe?) then (não)
+  :Lança erro: "Conta não encontrada.";
+  stop
+endif
+
+if (Já existe cartão com este nome?) then (sim)
+  :Lança erro: "Já existe um cartão com este nome.";
+  stop
+endif
+
+:Cria um novo objeto de Cartão;
+:Associa o cartão à conta;
+:Salva o cartão no banco de dados;
+:Retorna objeto do cartão criado;
+
+stop
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+start
+
+:Sistema valida os parâmetros de entrada;
+
+if (Parâmetros válidos?) then (sim)
+  :Cria um novo objeto de Notificação;
+  :Associa a notificação ao usuário;
+  :Salva a notificação no banco de dados;
+  :Retorna objeto da notificação;
+else (não)
+  :Lançar erro;
+  stop
+endif
+
+stop
+@enduml
