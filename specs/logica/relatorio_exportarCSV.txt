@@ -1,0 +1,8 @@
+@startuml
+start
+:Gerar dados do relatório;
+:Converter dados para formato CSV;
+:Salvar arquivo CSV em disco;
+:Confirmar exportação;
+stop
+@enduml

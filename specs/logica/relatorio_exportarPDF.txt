@@ -1,0 +1,9 @@
+@startuml
+start
+:Gerar dados do relatório;
+:Formatar conteúdo em layout PDF;
+:Adicionar gráficos e tabelas;
+:Salvar arquivo em disco;
+:Confirmar exportação;
+stop
+@enduml

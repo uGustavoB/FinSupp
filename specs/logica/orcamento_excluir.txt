@@ -1,0 +1,12 @@
+@startuml
+start
+:Receber ID do orçamento;
+:Buscar orçamento no banco de dados;
+if (Orçamento não encontrado?) then (Sim)
+  :Encerrar operação (nada a excluir);
+  stop
+endif
+:Excluir orçamento do banco de dados;
+:Confirmar exclusão;
+stop
+@enduml

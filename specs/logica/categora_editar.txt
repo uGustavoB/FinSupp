@@ -1,0 +1,13 @@
+@startuml
+start
+:Receber novo nome da categoria;
+:Validar que o nome não está vazio;
+:Verificar se já existe categoria com o mesmo nome;
+if (Já existe?) then (Sim)
+  :Lançar erro "Categoria já cadastrada";
+  stop
+endif
+:Atualizar nome da categoria;
+:Salvar alterações no banco de dados;
+stop
+@enduml

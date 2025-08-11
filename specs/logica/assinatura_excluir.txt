@@ -1,0 +1,8 @@
+@startuml
+start
+:Receber ID da assinatura;
+:Verificar se assinatura existe;
+:Remover assinatura do banco de dados;
+:Confirmar exclusão;
+stop
+@enduml

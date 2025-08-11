@@ -1,0 +1,7 @@
+@startuml
+start
+:Construir consulta SQL/ORM para transações com status = PENDENTE;
+:Executar consulta no banco de dados;
+:Retornar lista de transações encontradas;
+stop
+@enduml

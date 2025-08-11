@@ -1,0 +1,9 @@
+@startuml
+start
+:Receber parâmetros do relatório;
+:Validar datas (dataInicio <= dataFim);
+:Buscar transações conforme filtros (conta, categoria, parcelas, descrição);
+:Calcular totais por categoria;
+:Definir formato de saída;
+stop
+@enduml

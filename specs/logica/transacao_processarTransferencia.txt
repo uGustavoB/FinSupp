@@ -1,0 +1,14 @@
+@startuml
+start
+:Validar que contaOrigem e contaDestino são diferentes;
+:Verificar se contaOrigem possui saldo suficiente;
+if (Saldo insuficiente?) then (Sim)
+  :Lançar exceção "Saldo insuficiente";
+  stop
+endif
+:Debitar valor da contaOrigem;
+:Creditar valor na contaDestino;
+:Atualizar status da transação para PAGA;
+:Salvar alterações no banco;
+stop
+@enduml

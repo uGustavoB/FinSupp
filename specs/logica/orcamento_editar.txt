@@ -1,0 +1,17 @@
+@startuml
+start
+:Receber novos dados do orçamento;
+:Buscar orçamento pelo ID;
+if (Orçamento não encontrado?) then (Sim)
+  :Lançar erro "Orçamento não encontrado";
+  stop
+endif
+:Validar campos obrigatórios;
+if (dataInicio > dataTermino?) then (Sim)
+  :Lançar erro "Data de início deve ser anterior à data de término";
+  stop
+endif
+:Atualizar atributos do orçamento;
+:Salvar alterações no banco de dados;
+stop
+@enduml
