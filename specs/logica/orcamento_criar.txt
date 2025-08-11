@@ -1,0 +1,17 @@
+@startuml
+start
+:Receber parâmetros do orçamento;
+:Validar campos obrigatórios (nome, valorTotalEstimado, dataInicio, dataTermino, categoria);
+if (dataInicio > dataTermino?) then (Sim)
+  :Lançar erro "Data de início deve ser anterior à data de término";
+  stop
+endif
+if (valorTotalEstimado <= 0) then (Sim)
+  :Lançar erro "Valor estimado deve ser positivo";
+  stop
+endif
+:Criar objeto Orcamento com dados informados;
+:Salvar no banco de dados;
+:Retornar orçamento criado;
+stop
+@enduml

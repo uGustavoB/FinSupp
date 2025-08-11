@@ -1,0 +1,11 @@
+@startuml
+start
+:Receber filtro de busca;
+:Construir consulta no banco de dados;
+if (Filtro não vazio?) then (Sim)
+  :Adicionar filtro à consulta;
+endif
+:Executar consulta;
+:Retornar lista de orçamentos encontrados;
+stop
+@enduml
