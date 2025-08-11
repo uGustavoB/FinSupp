@@ -1,0 +1,17 @@
+@startuml
+
+start
+:Receber parâmetro (String banco);
+:Iniciar chamada de API para o endpoint de 'status' do parceiro de Open Finance, passando o banco desejado;
+:Aguardar a resposta da API externa;
+
+if (API respondeu com status 'Disponível' ou 'Online'?) then (Sim)
+    :Retornar 'true' (banco disponível);
+else (Não)
+    :Registrar no log do sistema que o banco está indisponível;
+    :Retornar 'false' (banco indisponível);
+endif
+
+stop
+
+@enduml

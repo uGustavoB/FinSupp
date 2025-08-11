@@ -1,0 +1,27 @@
+@startuml
+
+start
+:Verificar o estado atual do controle por voz (Ativado ou Desativado);
+
+if (Controle por voz está 'Ativado'?) then (Sim, Desativar)
+    :Alterar o estado para 'Desativado';
+    :Desativar o listener do microfone;
+    :Descarregar a biblioteca de reconhecimento de voz;
+    :Salvar a preferência do usuário (Controle por Voz Desativado);
+    :Retornar "Controle por voz desativado";
+else (Não, Ativar)
+    :Solicitar permissão do usuário para acessar o microfone;
+    if (Permissão concedida?) then (Sim)
+        :Alterar o estado para 'Ativado';
+        :Carregar a biblioteca de reconhecimento de voz;
+        :Ativar o listener do microfone para ouvir os comandos;
+        :Salvar a preferência do usuário (Controle por Voz Ativado);
+        :Retornar "Controle por voz ativado";
+    else (Não)
+        :Retornar erro "Permissão de microfone negada. Não é possível ativar o controle por voz.";
+    endif
+endif
+
+stop
+
+@enduml

@@ -1,0 +1,51 @@
+@startuml
+
+start
+:Receber novos dados (nome, email, senha, contatoEmergencia);
+:Solicitar senha atual do usuário para confirmar as alterações;
+:Validar se a senha atual está correta;
+
+if (Senha válida?) then (Sim)
+    fork
+        :Verificar se nome ou e-mail foram alterados;
+        if (Sim?) then (Sim)
+            :Validar se o novo e-mail já está em uso por outra conta;
+            if (E-mail disponível?) then (Sim)
+                :Atualizar nome e/ou e-mail do usuário;
+            else (Não)
+                :Marcar erro "E-mail já em uso";
+            endif
+        endif
+    fork again
+        :Verificar se uma nova senha foi fornecida;
+        if (Sim?) then (Sim)
+            :Validar se a nova senha atende aos critérios de segurança;
+            if (Senha forte?) then (Sim)
+                :Atualizar senha do usuário;
+            else (Não)
+                :Marcar erro "Nova senha é fraca";
+            endif
+        endif
+    fork again
+        :Verificar se o contato de emergência foi alterado;
+        if (Sim?) then (Sim)
+            :Atualizar contato de emergência do usuário;
+        endif
+    end fork
+    
+    :Verificar se houve algum erro marcado;
+    if (Nenhum erro?) then (Sim)
+        :Salvar todas as alterações no banco de dados;
+        :Registrar log de alteração de perfil;
+        :Retornar "Dados atualizados com sucesso";
+    else (Não)
+        :Descartar todas as alterações;
+        :Retornar mensagens de erro correspondentes;
+    endif
+else (Não)
+    :Retornar erro "Senha de confirmação incorreta";
+endif
+
+stop
+
+@enduml

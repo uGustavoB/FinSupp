@@ -1,0 +1,12 @@
+@startuml
+start
+:Verificar se transação é recorrente;
+if (Não é recorrente) then (Sim)
+  :Encerrar sem alterações;
+else (Não)
+  :Definir dataTerminoRecorrencia para a data atual;
+  :Atualizar despesaRecorrente para false;
+  :Salvar alterações no banco;
+endif
+stop
+@enduml

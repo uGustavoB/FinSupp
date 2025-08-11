@@ -1,0 +1,22 @@
+@startuml
+title Diagrama de Atividades: Excluir Meta
+
+start
+
+:Recebe parâmetro de entrada (ID da meta);
+
+if (Parâmetro válido?) then (não)
+  :Lança erro: "ID da meta inválido.";
+  stop
+endif
+
+if (Meta existe?) then (não)
+  :Lança erro: "Meta não encontrada.";
+  stop
+endif
+
+:Exclui a meta do banco de dados;
+:Retorna confirmação de sucesso;
+
+stop
+@enduml

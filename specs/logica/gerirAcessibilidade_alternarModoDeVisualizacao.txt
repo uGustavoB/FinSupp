@@ -1,0 +1,20 @@
+@startuml
+
+start
+:Verificar o modo de visualização atual do usuário (ex: 'Padrão');
+:Buscar a lista de modos disponíveis (ex: 'Padrão', 'Compacto', 'Amplo');
+:Identificar qual é o próximo modo na sequência;
+
+if (Modo atual é o último da lista?) then (Sim)
+    :Definir o novo modo como o primeiro da lista (volta ao início);
+else (Não)
+    :Definir o novo modo como o próximo da lista;
+endif
+
+:Aplicar os estilos (CSS) correspondentes ao novo modo de visualização na interface;
+:Salvar a nova preferência de visualização para o usuário;
+:Retornar "Modo de visualização alterado para " + novoModo;
+
+stop
+
+@enduml

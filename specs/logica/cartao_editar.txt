@@ -1,0 +1,26 @@
+@startuml
+start
+
+:Recebe parâmetros de entrada (idCartao, nome, limite, tipo);
+
+if (Parâmetros válidos?) then (não)
+  :Lança erro: "Parâmetros inválidos.";
+  stop
+endif
+
+if (Cartão encontrado?) then (não)
+  :Lança erro: "Cartão não encontrado.";
+  stop
+endif
+
+if (Já existe outro cartão com este nome?) then (sim)
+  :Lança erro: "Já existe outro cartão com este nome.";
+  stop
+endif
+
+:Atualiza os dados do cartão (nome, limite, tipo);
+:Salva as alterações no banco de dados;
+:Retorna objeto do cartão atualizado;
+
+stop
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+
+start
+:Verificar a preferência de tema atual do usuário (ex: 'Claro' ou 'Escuro');
+
+if (Tema atual é 'Claro'?) then (Sim)
+    :Definir a nova preferência como 'Escuro';
+    :Aplicar a folha de estilos (CSS) do tema escuro em toda a interface;
+else (Não, é 'Escuro')
+    :Definir a nova preferência como 'Claro';
+    :Aplicar a folha de estilos (CSS) do tema claro em toda a interface;
+endif
+
+:Salvar a nova preferência de tema para o usuário no banco de dados;
+:Retornar "Tema alterado com sucesso";
+
+stop
+
+@enduml

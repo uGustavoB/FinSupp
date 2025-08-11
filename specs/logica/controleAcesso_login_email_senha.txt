@@ -1,0 +1,31 @@
+@startuml
+
+start
+:Receber parâmetros (String email, String senha);
+:Validar formato do e-mail e se a senha não está vazia;
+
+if (Dados de entrada válidos?) then (Sim)
+    :Buscar no banco de dados um usuário com o e-mail fornecido;
+    if (Usuário encontrado?) then (Sim)
+        :Buscar a senha (hash) armazenada para este usuário;
+        :Verificar se a senha fornecida corresponde à senha armazenada;
+        if (Senha correta?) then (Sim, Sucesso)
+            :Criar um objeto LogLogin com status 'Sucesso', IP, data/hora, etc.;
+            :Salvar o registro de log;
+            :Criar sessão de usuário;
+            :Retornar o objeto Usuario correspondente;
+        else (Não, Senha Incorreta)
+            :Criar um objeto LogLogin com status 'Falha', IP, data/hora, etc.;
+            :Salvar o registro de log;
+            :Retornar 'null' ou erro "E-mail ou senha inválidos";
+        endif
+    else (Não, Usuário não encontrado)
+        :Retornar 'null' ou erro "E-mail ou senha inválidos";
+    endif
+else (Não, Dados Inválidos)
+    :Retornar erro "Formato de e-mail ou senha inválido";
+endif
+
+stop
+
+@endl

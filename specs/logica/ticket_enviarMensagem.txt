@@ -1,0 +1,21 @@
+@startuml
+
+start
+:Receber parâmetro (Mensagem novaMensagem);
+:Validar se o conteúdo da mensagem não está vazio;
+
+if (Conteúdo da mensagem é válido?) then (Sim)
+    :Definir a data/hora atual na 'novaMensagem';
+    :Adicionar a 'novaMensagem' à lista 'historicoMensagens' do ticket;
+    :Salvar a alteração no banco de dados;
+    :Identificar o destinatário da mensagem (cliente ou atendente);
+    :Chamar 'Notificacao.criar', passando o 'destinatario' 
+    para o parâmetro 'usuario' e definindo 'enviarEmail' como true;
+    :Retornar "Mensagem enviada com sucesso";
+else (Não)
+    :Retornar erro "A mensagem não pode estar em branco";
+endif
+
+stop
+
+@enduml

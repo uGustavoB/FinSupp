@@ -1,0 +1,14 @@
+@startuml
+start
+
+:Exibir a lista com todos os cartões cadastrados;
+
+if (Existe um termo de busca?) then (sim)
+  :Filtrar a lista de cartões com base no termo informado;
+  :Exibir a lista filtrada;
+else (não)
+  :Exibir a lista completa de cartões;
+endif
+
+stop
+@enduml

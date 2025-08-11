@@ -1,0 +1,33 @@
+@startuml
+title Diagrama de Atividades: contarTransacoesPorCategoria
+
+start
+
+:Cria um novo mapa vazio para armazenar a contagem por categoria;
+
+:Obtém a lista de todas as transações (entradas e saídas) no período definido;
+if (Filtro da conta está definido?) then (sim)
+  :Filtra a lista de transações para incluir apenas as da conta especificada;
+endif
+
+if (Filtro da categoria está definido?) then (sim)
+  :Filtra a lista de transações para incluir apenas as da categoria especificada;
+endif
+
+:Para cada transação na lista filtrada;
+
+repeat
+  :Obtém a categoria da transação;
+
+  :Verifica se a categoria já existe no mapa;
+  if (Categoria já existe no mapa?) then (sim)
+    :Incrementa o contador da categoria em 1;
+  else (não)
+    :Adiciona a categoria ao mapa com o valor inicial 1;
+  endif
+repeat while (Existem mais transações para processar?) is (sim) not (não)
+
+:Retorna o mapa com a contagem de transações por categoria;
+
+stop
+@enduml

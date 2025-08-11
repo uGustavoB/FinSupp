@@ -1,0 +1,20 @@
+@startuml
+
+start
+:Receber parâmetros (banco, usuario, senha);
+:Iniciar uma conexão segura com a API do parceiro de Open Finance;
+:Enviar as credenciais do usuário para o endpoint de autenticação do banco selecionado;
+:Aguardar a resposta da API externa;
+
+if (API respondeu com sucesso e autenticação foi bem-sucedida?) then (Sim)
+    :Receber o token de acesso temporário do parceiro;
+    :Retornar 'true' (autenticação bem-sucedida);
+else (Não)
+    :Receber a mensagem de erro da API (ex: "Credenciais inválidas");
+    :Registrar a tentativa de autenticação falha no log do sistema;
+    :Retornar 'false' (autenticação falhou);
+endif
+
+stop
+
+@enduml

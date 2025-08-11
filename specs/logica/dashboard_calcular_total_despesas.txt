@@ -1,0 +1,27 @@
+@startuml
+title Diagrama de Atividades: calcularTotalDespesas
+
+start
+
+:Cria uma variável 'totalDespesas' e a inicializa com 0;
+
+:Obtém a lista de todas as despesas no período definido;
+if (Filtro da conta está definido?) then (sim)
+  :Filtra a lista de despesas para incluir apenas as da conta especificada;
+endif
+
+if (Filtro da categoria está definido?) then (sim)
+  :Filtra a lista de despesas para incluir apenas as da categoria especificada;
+endif
+
+:Para cada despesa na lista filtrada;
+
+repeat
+  :Obtém o valor da despesa;
+  :Adiciona o valor da despesa à variável 'totalDespesas';
+repeat while (Existem mais despesas para processar?) is (sim) not (não)
+
+:Retorna a variável 'totalDespesas';
+
+stop
+@enduml

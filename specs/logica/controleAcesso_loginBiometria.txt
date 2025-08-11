@@ -1,0 +1,30 @@
+@startuml
+
+start
+:Receber parâmetro (identificadorBiometrico);
+:Verificar se o identificador é válido e não está vazio;
+
+if (Identificador válido?) then (Sim)
+    :Buscar no banco de dados o usuário associado a este identificadorBiometrico;
+    if (Usuário encontrado?) then (Sim)
+        :Solicitar ao sistema operacional/navegador que valide a biometria do usuário (digital/facial);
+        if (Dispositivo validou a biometria com sucesso?) then (Sim, Sucesso)
+            :Criar um objeto LogLogin com status 'Sucesso (Biometria)', IP, data/hora, etc.;
+            :Salvar o registro de log;
+            :Criar sessão de usuário;
+            :Retornar o objeto Usuario correspondente;
+        else (Não, Falha na Biometria)
+            :Criar um objeto LogLogin com status 'Falha (Biometria)', IP, data/hora, etc.;
+            :Salvar o registro de log;
+            :Retornar 'null' ou erro "Autenticação biométrica falhou";
+        endif
+    else (Não, Identificador não encontrado)
+        :Retornar 'null' ou erro "Biometria não cadastrada para nenhum usuário";
+    endif
+else (Não, Identificador Inválido)
+    :Retornar erro "Identificador biométrico inválido";
+endif
+
+stop
+
+@enduml

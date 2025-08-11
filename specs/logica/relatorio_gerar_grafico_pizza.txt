@@ -1,0 +1,7 @@
+@startuml
+start
+:Calcular totais por categoria;
+:Gerar gráfico de pizza com biblioteca de gráficos;
+:Exibir gráfico na tela;
+stop
+@enduml

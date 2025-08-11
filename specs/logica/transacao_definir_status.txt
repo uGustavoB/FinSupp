@@ -1,0 +1,16 @@
+@startuml
+start
+:Receber novo status;
+if (Status é diferente do atual?) then (Sim)
+  :Validar se a transição de status é permitida;
+  if (Transição válida?) then (Sim)
+    :Atualizar status da transação;
+    :Salvar alterações no banco de dados;
+  else (Não)
+    :Lançar exceção "Transição inválida";
+  endif
+else (Não)
+  :Nenhuma alteração necessária;
+endif
+stop
+@enduml

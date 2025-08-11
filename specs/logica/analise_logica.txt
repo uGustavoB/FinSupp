@@ -1,0 +1,409 @@
+@startuml
+
+' ==== CLASSE BASE DE USUÁRIOS ====
+
+abstract class Usuario {
+    - int id
+    - String nome
+    - String email
+    - String senha
+    - String tipo
+}
+
+class Cliente {
+    - ContatoEmergencia contatoEmergencia
+    - String Biometria
+    - List<ContaBancaria> contas
+
+    + void gerenciarConta(Conta conta, Boolean boolean)
+    + void gerenciarBiometria(String Biometria, Boolean boolean)
+    + void atualizarDados(String nome, String email, String senha, ContatoEmergencia contatoEmergencia)
+
+
+}
+class AtendenteSuporte {
+    - String cargo
+
+    + boolean autenticar(String senha)
+}
+class Administrador
+
+
+' ==== ENTIDADES PRINCIPAIS ====
+
+class Assinatura {
+    - int id
+    - String descricao
+    - double valorMensal
+    - EnumFrequencia frequencia
+    - Conta conta
+    - Date dataInicio
+    - Date dataFim
+    - String observacoes
+
+    + Assinatura salvar (String descricao, double valorMensal, EnumFrequencia frequencia , Conta conta, Date dataInicio, Date dataFim, String observacoes)
+    + void editar(String descricao, double valorMensal, String recorrencia, Conta conta, Date dataFim, String observacoes)
+    + void excluir(int id)
+    + List<Assinatura> listar(Usuario cliente)
+
+}
+
+class Cartao {
+    - int id
+    - String nome
+    - Conta conta
+    - double limiteMaximo
+    - double limiteEmUso
+    - String tipo
+
+    + Cartao salvar(String nome, Conta conta, double limite, String tipo)
+    + void editar(String nome, double limite, String tipo, Conta conta)
+    + void excluir(int id)
+    + List<Cartao> listar(String filtro)
+
+}
+
+class Categoria {
+    - int id
+    - String nome
+
+    + List<Categoria> listar(String filtro)
+    + Categoria buscarPorId(int id)
+    + Categoria criar(String nome)
+    + Categoria editar(String novoNome)
+    + void excluir(int id)
+}
+
+class Meta {
+    - int id
+    - Categoria categoria
+    - double valorMeta
+    - double valorGasto
+
+    + Meta salvar(Categoria categoria, double valorMeta)
+    + Meta editar(Categoria categoria, double novoValorMeta)
+    + void excluir(int id)
+    + List<Meta> listar(String filtro)
+
+}
+
+class Conta {
+    - int id
+    - String nome
+    - String banco
+    - String numeroConta
+    - String agencia
+    - boolean isOpenFinance
+    - list <Cliente> acessoCompartilhado
+
+    + Conta salvarConta (String banco, String numeroConta, string agencia) 
+    + void compartilharAcesso(Cliente cliente, Boolean boolean)
+    + void gerenciarrAcesso(Cliente cliente, Boolean boolean)
+    + List<Conta> listar(String filtro)
+    + Conta buscarPorId(int id)
+    + void editar(String nome, String banco, String numeroConta)
+    + void excluir(int id)
+}
+
+class Orcamento {
+    - int id
+    - String nome
+    - double valorTotalEstimado
+    - Date dataInicio
+    - Date dataTermino
+    - Categoria categoria
+    - String prioridade
+    - String descricaoOpcional
+
+    + Orcamento salvar(String nome, double valorTotalEstimado, Date dataInicio, Date dataTermino, Categoria categoria, String prioridade, String descricaoOpcional)
+    + Orcamento editar(String nome, double valorTotalEstimado, Date dataInicio, Date dataTermino, Categoria categoria, String prioridade, String descricaoOpcional)
+    + void excluir(int id)
+    + List<Orcamento> listar()
+
+}
+
+
+
+
+
+class Notificacao {
+    - int id
+    - Cliente usuario
+    - String mensagem
+    - Date dataCriacao
+    - boolean lida
+
+    + List<Notificacao> listarNaoLidas(Cliente usuario)
+    + void marcarComoLida()
+    + void criarNotificacao(Cliente usuario, String mensagem, enviarEmail = false)
+}
+
+class Fatura {
+    - int id
+    - Cartao cartao
+    - Date mesReferencia
+    - Date dataVencimento
+    - double valorTotal
+
+    + Fatura buscarPorCartaoEMes(Cartao cartao, Date mesReferencia)
+    + Fatura criar(Cartao cartao, Date mesReferencia, Date dataVencimento, double valorInicial)
+    + void atualizarValorTotal(double valorParcela)
+}
+
+
+
+
+class Transacao {
+    - int id
+    - EnumTipo tipo
+    - Date dataTransacao
+    - double valor
+    - Categoria categoria
+    - Conta contaOrigem
+    - Conta contaDestino
+    - String descricao
+    - EnumStatus status
+    - boolean despesaRecorrente
+    - EnumFrequencia frequencia
+    - Date dataTerminoRecorrencia
+    - Fatura fatura
+
+    + void definirStatus(EnumStatus status)
+    + List<Transacao> listarPendentes()
+    + Transacao salvar(EnumTipo tipo, Date dataTransacao, double valor, Categoria categoria, Conta contaOrigem, Conta contaDestino, String descricao, boolean despesaRecorrente, EnumFrequencia frequencia, Date dataTerminoRecorrencia, Fatura fatura)
+    + void editar(EnumTipo tipo, Date dataTransacao, double valor, Categoria categoria, Conta contaOrigem, Conta contaDestino, String descricao, boolean despesaRecorrente, EnumFrequencia frequencia, Date dataTerminoRecorrencia, Fatura fatura)
+    + void cancelarRecorrencia()
+    + void processarTransferencia()
+}
+
+
+class CalendarioFinanceiro {
+    - Date mesAtual
+    - Categoria filtroCategoria
+    - Conta filtroConta
+
+    + void carregarMes(Date mes)
+    + List<Transacao> obterTransacoesDoDia(Date dia)
+    + Map<Date, List<Transacao>> obterIndicadoresMes()
+}
+
+class DashboardFinanceira {
+    - Date periodoInicio
+    - Date periodoFim
+    - Conta filtroConta
+    - Categoria filtroCategoria
+    - EnumTipoGrafico tipoGrafico
+
+    + Map<Categoria, Double> gerarDadosDespesasPorCategoria()
+    + Map<Categoria, Integer> contarTransacoesPorCategoria()
+    + double calcularTotalDespesas()
+    + Categoria categoriaMaiorGasto()
+    + Categoria categoriaMenorGasto()
+    
+}
+
+class Relatorio {
+    - Date dataInicio
+    - Date dataFim
+    - Conta conta
+    - Categoria categoria
+    - Integer quantidadeParcelas
+    - String descricao
+    - EnumFormato formato
+    - List<Transacao> transacoes
+    - Map<Categoria, Double> totaisPorCategoria
+
+    + void gerar()
+    + void exportarPDF()
+    + void exportarCSV()
+    + void gerarGraficoPizza()
+}
+
+class ContatoEmergencia {
+    - String telefoneSecundario
+    - String emailAlternativo
+    - Date dataCadastro
+
+    + boolean existeContato()
+    + String getTelefone()
+    + String getEmail()
+}
+
+
+class Ticket {
+    - String id
+    - String assunto
+    - String categoria
+    - String descricao
+    - String status
+    - Usuario cliente
+    - Usuario atendente
+    - List<Mensagem> historicoMensagens
+
+    + Ticket salvar(Usuario cliente, String assunto, String categoria,  String descricao)  
+    + void gerenciarTicket(String id, Boolean boolean)
+    + void enviarMensagem(Mensagem mensagem)
+
+}
+
+class Mensagem {
+    - Usuario rementente
+    - Date dataHora
+    - String conteudo
+    - ArquivoAnexo anexo
+    
+}
+
+class ArquivoAnexo {
+     - String nome
+     - String TipoMime
+
+}
+
+
+
+
+
+class ControleAcesso {
+
+    + Usuario loginEmailSenha(String email, String senha)
+    + Usuario loginBiometria(String identificadorBiometrico)
+    + boolean solicitarReautenticacao(AtendenteSuporte atendente)
+    + boolean validarMotivo(String motivo)
+    + void bloquearAcesso(Usuario cliente, Usuario atendente, String motivo)
+    + void recuperarSenha(Usuario usuario)
+}
+
+class openFinance {
+    - String parceiro
+
+    + List<String> listarInstituicoes()
+    + boolean autenticarBanco(String banco, String usuario, String senha)
+    + boolean obterConsentimento(String banco, String termos)
+    + boolean verificarDisponibilidade(String banco)
+    + void atualizarTransaçõees(Conta conta)
+}
+
+class LogAlteracaoPerfil {
+    - Date dataHora
+    - Usuario responsavelAlteracao
+    - String descricaoAlteracao
+
+    + void registrarAlteracao(Usuario responsavel, String descricao)
+}
+
+class LogLogin{
+     - DateTime dataHora
+     - String status
+     - String enderecoIP
+     - String localizacao
+     - String DispositivoDeAcesso
+
+     + List<LogLogin> listarHistorico(Usuario usuario, String filtro )
+
+}
+
+
+
+Class GerirAcessibilidade{
+     + void GerenciarModoLeituraDeTela()
+     + void GerenciarModoDaltonismo()  
+     + void GerenciarControlePorVoz()
+     + void AlternarTemas()
+     + void AlternarModoDeVisualizacao()
+}
+
+
+' ==== ENUMS ====
+
+enum EnumTipoGrafico {
+    PIZZA
+    BARRA
+    LINHA
+}
+
+enum EnumTipo {
+    DESPESA
+    RECEITA
+    TRANSFERENCIA
+}
+
+enum EnumStatus {
+    PENDENTE
+    PAGA
+    RECEBIDA
+    ATRASADO
+}
+
+enum EnumFrequencia {
+    MENSAL
+    SEMANAL
+    TRIMESTRAL
+    SEMESTRAL
+    ANUAL
+    PERSONALIZADO
+}
+
+' ==== RELACIONAMENTOS ====
+
+Usuario <|-- Cliente
+Usuario <|-- AtendenteSuporte
+Usuario <|-- Administrador
+
+Usuario --> GerirAcessibilidade : "gerencia"
+Usuario --> LogLogin : possui >
+
+Cliente --> LogAlteracaoPerfil : gera >
+
+ControleAcesso ..> Usuario : autentica >
+ControleAcesso ..> AtendenteSuporte : reautentica >
+ControleAcesso ..> Usuario : bloqueiaAcesso >
+
+GerirAcessibilidade ..> Usuario : aplicaRecursosDeAcessibilidade >
+
+' ======= CLiente =======
+Cliente "1" --> "N" ContatoEmergencia : possui >
+Cliente "1"--> "N" Conta : gerencia >
+Cliente "1"--> "N" Orcamento : gerencia >
+Cliente "1"--> "N" Transacao : gerencia >
+Cliente "1"--> "N" Notificacao : recebe >
+Cliente "1"--> "N" Assinatura : gerencia >
+Cliente "1"--> "N" Meta : gerencia >
+Cliente "1"--> "N" Categoria : gerencia >
+
+
+
+' ----- Conta -----
+Conta "1" *-- "N" Cartao : possui >
+Conta "1" *-- "N" Transacao : registra >
+
+Conta <.. DashboardFinanceira
+Conta <.. CalendarioFinanceiro
+
+openFinance --> Conta : atualizaDados >
+
+' ----- Categoria -----
+
+Categoria <.. CalendarioFinanceiro
+
+Categoria "1"--> "N" Transacao
+Categoria "1"--> "N" Orcamento
+Categoria "1"--> "N" Meta
+
+
+Transacao <.. DashboardFinanceira
+Transacao <.. CalendarioFinanceiro
+
+' ----- Ticket -----
+Usuario "1"--> "N" Ticket 
+Ticket --> Usuario : criadoPor >
+Ticket --> Usuario : atendenteResponsavel >
+Ticket "0" *--  "N" Mensagem : possui >
+
+' ----- Mensagem -----
+Mensagem --> Usuario : remetente >
+Mensagem "1"--> "N" ArquivoAnexo : podeTer >
+Usuario "1"--> "N" Mensagem 
+
+
+@enduml

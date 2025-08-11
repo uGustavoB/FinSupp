@@ -1,0 +1,32 @@
+@startuml
+title Diagrama de Atividades: obterIndicadoresMes
+
+start
+
+:Recebe parâmetros de entrada (mês, ano);
+
+:Valida os parâmetros de entrada;
+if (Parâmetros são validos?) then (não)
+  :Lança erro: "Parâmetros de calendário inválidos.";
+  stop
+endif
+
+:Busca todas as transações (entradas e saídas) do mês e ano especificados;
+:Cria um novo mapa para armazenar os indicadores por dia;
+:Para cada transação encontrada;
+
+repeat
+  :Obtém a data da transação;
+  :Verifica se já existe uma lista de transações para essa data no mapa;
+  if (Lista para a data existe?) then (não)
+    :Cria uma nova lista para a data;
+    :Adiciona a nova lista ao mapa com a data como chave;
+  else (sim)
+  :Adiciona a transação à lista correspondente no mapa;
+  endif
+repeat while (Existem mais transações para processar?) is (sim) not (não)
+
+:Retorna o mapa contendo as transações agrupadas por dia;
+
+stop
+@enduml

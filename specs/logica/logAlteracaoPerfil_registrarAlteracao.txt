@@ -1,0 +1,13 @@
+@startuml
+
+start
+:Receber parâmetros (Usuario responsavel, String descricao);
+:Criar um novo objeto LogAlteracaoPerfil na memória;
+:Definir a data/hora atual no novo objeto de log;
+:Associar o log ao usuário responsável pela alteração;
+:Definir a descrição da alteração no log (ex: "E-mail alterado");
+:Salvar o novo registro de log no banco de dados;
+:Retornar "Alteração registrada com sucesso";
+stop
+
+@enduml

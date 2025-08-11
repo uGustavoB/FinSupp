@@ -1,0 +1,11 @@
+@startuml
+start
+:Receber filtro de busca;
+:Construir consulta no banco de dados para todas as categorias;
+if (Filtro não vazio?) then (Sim)
+  :Adicionar condição de filtro à consulta;
+endif
+:Executar consulta;
+:Retornar lista de categorias encontradas;
+stop
+@enduml

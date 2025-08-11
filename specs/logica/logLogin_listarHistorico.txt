@@ -1,0 +1,19 @@
+@startuml
+
+start
+:Receber parâmetros (Usuario usuario, String filtro);
+:Iniciar consulta base no banco de dados para buscar os registros de 'LogLogin' associados ao 'usuario';
+
+if (Parâmetro 'filtro' foi fornecido e não está vazio?) then (Sim)
+    :Adicionar condição à consulta para buscar pelo 'filtro'
+    nos campos (ex: status 'Falha', endereço IP, localização);
+endif
+
+:Ordenar os resultados do mais recente para o mais antigo;
+:Executar a consulta final no banco de dados;
+:Coletar os resultados da consulta;
+:Retornar a lista de 'LogLogin' encontrada;
+
+stop
+
+@enduml

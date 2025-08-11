@@ -1,0 +1,27 @@
+@startuml
+title Diagrama de Atividades: Criar Fatura
+
+start
+
+:Recebe parâmetros de entrada;
+
+:Valida os parâmetros de entrada;
+if (Parâmetros são validos?) then (não)
+  :Lança erro: "Parâmetros de criação de fatura inválidos.";
+  stop
+endif
+
+:Verifica se já existe uma fatura para o cartão e mês/ano informados;
+if (Fatura já existe?) then (sim)
+  :Lança erro: "Já existe uma fatura para este cartão e período.";
+  stop
+endif
+
+:Busca todas as despesas do cartão para o mês e ano;
+:Calcula o valor total das despesas para gerar o valor da fatura;
+:Cria um novo objeto 'Fatura' com os dados calculados;
+:Salva o novo objeto 'Fatura' no banco de dados;
+:Retorna o objeto da fatura criada;
+
+stop
+@enduml

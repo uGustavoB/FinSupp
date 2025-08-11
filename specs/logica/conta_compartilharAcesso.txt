@@ -1,0 +1,30 @@
+@startuml
+
+start
+:Receber parâmetros (clienteConvidado, boolean conceder);
+
+if (conceder é true?) then (Sim, Conceder Acesso)
+    :Verificar se clienteConvidado já está na lista 'acessoCompartilhado' da conta;
+    if (Acesso já concedido?) then (Sim)
+        :Retornar erro "Este usuário já possui acesso a esta conta";
+    else (Não)
+        :Adicionar clienteConvidado à lista 'acessoCompartilhado';
+        :Salvar alterações da conta no banco de dados;
+        :Notificar clienteConvidado sobre o novo acesso;
+        :Retornar "Acesso compartilhado com sucesso";
+    endif
+else (Não, Revogar Acesso)
+    :Verificar se clienteConvidado está na lista 'acessoCompartilhado' da conta;
+    if (Acesso não encontrado?) then (Sim)
+        :Retornar erro "Usuário não possui acesso para ser revogado";
+    else (Não)
+        :Remover clienteConvidado da lista 'acessoCompartilhado';
+        :Salvar alterações da conta no banco de dados;
+        :Notificar clienteConvidado sobre a revogação do acesso;
+        :Retornar "Acesso revogado com sucesso";
+    endif
+endif
+
+stop
+
+@enduml

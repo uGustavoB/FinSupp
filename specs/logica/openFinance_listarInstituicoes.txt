@@ -1,0 +1,19 @@
+@startuml
+
+start
+:Iniciar a chamada de API para o parceiro de Open Finance (ex: Plaid, Belvo);
+:Aguardar a resposta da API externa;
+
+if (API respondeu com sucesso e status 200 OK?) then (Sim)
+    :Receber a lista de instituições em formato de dados (ex: JSON);
+    :Analisar (parse) os dados recebidos;
+    :Converter os dados em uma lista de objetos ou strings simples (ex: "Itaú", "Bradesco");
+    :Retornar a lista de instituições financeiras;
+else (Não, houve erro)
+    :Registrar o erro de comunicação com a API no log do sistema;
+    :Retornar uma lista vazia ou um erro "Não foi possível carregar as instituições no momento";
+endif
+
+stop
+
+@enduml

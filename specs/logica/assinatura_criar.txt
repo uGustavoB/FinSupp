@@ -1,0 +1,10 @@
+@startuml
+start
+:Receber parâmetros da assinatura;
+:Validar dados obrigatórios (descrição, valorMensal, conta, datas);
+:Verificar se dataInicio <= dataFim;
+:Criar objeto Assinatura;
+:Salvar no banco de dados;
+:Retornar assinatura criada;
+stop
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+
+start
+:Receber parâmetro (String motivo);
+:Verificar se o texto do motivo é nulo ou está em branco;
+
+if (Motivo está em branco?) then (Sim)
+    :Retornar 'false' (motivo inválido);
+else (Não)
+    :Verificar se o motivo atende às regras de negócio (ex: mínimo de 15 caracteres);
+    if (Regras atendidas?) then (Sim)
+        :Retornar 'true' (motivo válido);
+    else (Não)
+        :Retornar 'false' (motivo inválido);
+    endif
+endif
+
+stop
+
+@enduml

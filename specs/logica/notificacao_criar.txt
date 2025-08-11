@@ -1,0 +1,22 @@
+@startuml
+start
+
+:Sistema valida os parâmetros de entrada (usuário, mensagem, enviarEmail [opcional]);
+
+if (Parâmetros válidos?) then (sim)
+  :Cria um novo objeto de Notificação;
+  :Associa a notificação ao usuário;
+  :Salva a notificação no banco de dados (para o histórico);
+  
+  if (parâmetro 'enviarEmail' foi fornecido e é true?) then (Sim)
+    :Enviar notificação por e-mail para o endereço do usuário;
+  endif
+
+  :Retorna objeto da notificação;
+else (não)
+  :Lançar erro;
+  stop
+endif
+
+stop
+@enduml

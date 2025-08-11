@@ -1,0 +1,21 @@
+@startuml
+
+start
+:Verificar o estado atual do modo de leitura de tela (Ligado ou Desligado);
+
+if (Modo de leitura de tela está 'Ligado'?) then (Sim)
+    :Alterar o estado para 'Desligado';
+    :Ajustar a interface para o modo visual padrão;
+    :Salvar a preferência do usuário (Leitura de Tela Desligada);
+    :Retornar "Modo de leitura de tela desativado";
+else (Não)
+    :Alterar o estado para 'Ligado';
+    :Ajustar a interface para ser compatível com leitores de tela 
+    (ex: adicionar tags ARIA, simplificar layout);
+    :Salvar a preferência do usuário (Leitura de Tela Ligada);
+    :Retornar "Modo de leitura de tela ativado";
+endif
+
+stop
+
+@enduml

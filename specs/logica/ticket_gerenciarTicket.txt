@@ -1,0 +1,35 @@
+@startuml
+
+start
+:Receber parâmetros (String id_do_ticket, boolean fechar);
+:Buscar o ticket no banco de dados pelo 'id_do_ticket';
+
+if (Ticket encontrado?) then (Sim)
+    if (fechar é true?) then (Sim, Fechar Ticket)
+        :Verificar se o status atual do ticket permite o fechamento (ex: "Em Andamento");
+        if (Pode ser fechado?) then (Sim)
+            :Alterar o status do ticket para "Resolvido";
+            :Salvar a alteração no banco de dados;
+            :Notificar o cliente que seu ticket foi resolvido;
+            :Retornar "Ticket resolvido com sucesso";
+        else (Não)
+            :Retornar erro "Ação inválida para o status atual do ticket";
+        endif
+    else (Não, Reabrir Ticket)
+        :Verificar se o status atual do ticket é "Resolvido";
+        if (Pode ser reaberto?) then (Sim)
+            :Alterar o status do ticket para "Reaberto";
+            :Salvar a alteração no banco de dados;
+            :Notificar o atendente responsável sobre a reabertura;
+            :Retornar "Ticket reaberto com sucesso";
+        else (Não)
+            :Retornar erro "Ação inválida. O ticket não estava resolvido.";
+        endif
+    endif
+else (Não)
+    :Retornar erro "Ticket não encontrado";
+endif
+
+stop
+
+@enduml

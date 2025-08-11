@@ -1,0 +1,28 @@
+@startuml
+
+start
+:Receber parâmetro (int id_da_conta_a_excluir);
+:Identificar o cliente logado;
+:Buscar no banco de dados a conta com o 'id' que pertença ao cliente logado;
+
+if (Conta foi encontrada?) then (Sim)
+    :Verificar se a conta possui transações ou cartões associados;
+    if (Possui dependências?) then (Sim)
+        :Retornar erro "Não é possível excluir. Mova ou exclua as transações/cartões associados primeiro.";
+    else (Não, pode excluir)
+        :Solicitar confirmação final ao usuário ("Você tem certeza?");
+        if (Usuário confirmou a exclusão?) then (Sim)
+            :Excluir a conta do banco de dados;
+            :Registrar log da exclusão;
+            :Retornar "Conta excluída com sucesso";
+        else (Não)
+            :Retornar "Exclusão cancelada pelo usuário";
+        endif
+    endif
+else (Não)
+    :Retornar erro "Conta não encontrada";
+endif
+
+stop
+
+@enduml

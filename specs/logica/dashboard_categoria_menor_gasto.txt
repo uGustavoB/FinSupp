@@ -1,0 +1,46 @@
+@startuml
+title Diagrama de Atividades: categoriaMenorGasto
+
+start
+
+:Cria um novo mapa vazio para armazenar o total de despesas por categoria;
+
+:Obtém a lista de todas as despesas no período definido;
+if (Filtro da conta está definido?) then (sim)
+  :Filtra a lista de despesas para incluir apenas as da conta especificada;
+endif
+
+if (Filtro da categoria está definido?) then (sim)
+  :Filtra a lista de despesas para incluir apenas as da categoria especificada;
+endif
+
+:Para cada despesa na lista filtrada;
+
+repeat
+  :Obtém a categoria da despesa;
+  :Obtém o valor da despesa;
+
+  if (Categoria já existe no mapa?) then (sim)
+    :Adiciona o valor da despesa ao total existente para essa categoria;
+  else (não)
+    :Adiciona a categoria ao mapa com o valor da despesa como seu total inicial;
+  endif
+repeat while (Existem mais despesas para processar?) is (sim)
+-> não;
+
+:Inicializa 'categoriaMenorGasto' como nulo;
+:Inicializa 'menorValorGasto' como infinito;
+
+:Para cada entrada (categoria e valor) no mapa;
+
+repeat
+  if (Valor da entrada < 'menorValorGasto'?) then (sim)
+    :Atualiza 'menorValorGasto' com o valor da entrada;
+    :Atualiza 'categoriaMenorGasto' com a categoria da entrada;
+  endif
+repeat while (Existem mais categorias para verificar?) is (sim) not (não)
+
+:Retorna 'categoriaMenorGasto';
+
+stop
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+title Diagrama de Atividades: gerarDadosDespesasPorCategoria
+
+start
+
+:Cria um novo mapa vazio para armazenar os totais por categoria;
+
+:Obtém a lista de todas as despesas no período definido;
+if (Filtro da conta está definido?) then (sim)
+  :Filtra a lista de despesas para incluir apenas as da conta especificada;
+endif
+
+if (Filtro da categoria está definido?) then (sim)
+  :Filtra a lista de despesas para incluir apenas as da categoria especificada;
+endif
+
+:Para cada despesa na lista filtrada;
+
+repeat
+  :Obtém a categoria da despesa;
+  :Obtém o valor da despesa;
+
+  if (Categoria já existe no mapa?) then (sim)
+    :Adiciona o valor da despesa ao total existente para essa categoria;
+  else (não)
+    :Adiciona a categoria ao mapa com o valor da despesa como seu total inicial;
+  endif
+repeat while (Existem mais despesas para processar?) is (sim) not (não);
+
+:Retorna o mapa com o total de despesas por categoria;
+
+stop
+@enduml

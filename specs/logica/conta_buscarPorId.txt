@@ -1,0 +1,16 @@
+@startuml
+
+start
+:Receber parâmetro (int id);
+:Identificar o cliente logado;
+:Executar consulta no banco de dados para buscar uma Conta com o 'id' fornecido E que pertença ao cliente logado;
+
+if (Conta foi encontrada no banco de dados?) then (Sim)
+    :Retornar o objeto Conta encontrado;
+else (Não)
+    :Retornar 'null' ou um erro "Conta não encontrada";
+endif
+
+stop
+
+@enduml

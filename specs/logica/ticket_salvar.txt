@@ -1,0 +1,21 @@
+@startuml
+
+start
+:Receber parâmetros (cliente, assunto, categoria, descricao);
+:Validar dados de entrada (assunto e descrição não podem ser vazios);
+
+if (Dados de entrada são válidos?) then (Sim)
+    :Criar novo objeto Ticket na memória;
+    :Definir status inicial como "Aberto";
+    :Definir a data/hora atual como data de criação;
+    :Associar o ticket ao cliente;
+    :Salvar o novo objeto Ticket no banco de dados;
+    :Chamar 'Notificacao.criar(cliente, "Seu ticket foi criado com sucesso", true)';
+    :Retornar o objeto Ticket recém-criado;
+else (Não)
+    :Retornar erro "Assunto e descrição são obrigatórios";
+endif
+
+stop
+
+@enduml

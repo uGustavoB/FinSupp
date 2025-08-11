@@ -1,0 +1,17 @@
+@startuml
+
+start
+:Receber parâmetro (AtendenteSuporte atendente);
+:Exibir uma interface para o atendente digitar sua senha atual;
+:Receber a senha digitada;
+:Chamar o método 'autenticar(senhaDigitada)' do objeto 'atendente';
+
+if (Método 'autenticar()' retornou 'true'?) then (Sim, Senha Correta)
+    :Retornar 'true' (reautenticação bem-sucedida);
+else (Não, Senha Incorreta)
+    :Retornar 'false' (reautenticação falhou);
+endif
+
+stop
+
+@enduml

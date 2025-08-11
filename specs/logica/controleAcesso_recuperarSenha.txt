@@ -1,0 +1,27 @@
+@startuml
+
+start
+:Receber parâmetro (Usuario usuario);
+:Verificar se o objeto 'usuario' é válido e possui um e-mail cadastrado;
+
+if (Usuário é válido?) then (Sim)
+    :Gerar um token (código) de recuperação de senha único e seguro;
+    :Definir um prazo de validade para o token (ex: 1 hora);
+    :Salvar o token e sua validade associados ao usuário no banco de dados;
+    :Construir a mensagem e o link de recuperação de senha contendo o token;
+    :Chamar 'Notificacao.criar(usuario, mensagem, true)' para enviar o link por e-mail;
+
+    if (E-mail enviado com sucesso?) then (Sim)
+        :Retornar "Link de recuperação enviado com sucesso";
+    else (Não)
+        :Registrar falha no log de sistema;
+        :Retornar erro "Não foi possível enviar o e-mail de recuperação";
+    endif
+
+else (Não)
+    :Retornar erro "Usuário inválido para recuperação de senha";
+endif
+
+stop
+
+@enduml

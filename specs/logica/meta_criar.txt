@@ -1,0 +1,23 @@
+@startuml
+title Diagrama de Atividades: Criar Meta
+
+start
+
+:Recebe parâmetros de entrada (nome da categoria, valor da meta);
+
+if (Parâmetros válidos?) then (não)
+  :Lança erro: "Parâmetros inválidos.";
+  stop
+endif
+
+if (Já existe meta para esta categoria?) then (sim)
+  :Lança erro: "Já existe uma meta para esta categoria.";
+  stop
+endif
+
+:Cria um novo objeto de Meta;
+:Salva a meta no banco de dados;
+:Retorna o objeto da meta criada;
+
+stop
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+
+start
+:Verificar o valor do atributo 'telefoneSecundario';
+:Verificar o valor do atributo 'emailAlternativo';
+
+if (O atributo 'telefoneSecundario' não está vazio? 
+OR 
+O atributo 'emailAlternativo' não está vazio?) then (Sim)
+    :Retornar 'true';
+else (Não)
+    :Retornar 'false';
+endif
+
+stop
+
+@enduml

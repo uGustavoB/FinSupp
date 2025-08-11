@@ -1,0 +1,20 @@
+@startuml
+
+start
+:Receber parâmetros (banco, termos);
+:Apresentar ao usuário a tela de consentimento do banco;
+:Aguardar a ação do usuário (aceitar ou recusar);
+
+if (Usuário selecionou 'Aceitar' ou 'Concordar'?) then (Sim)
+    :Receber do parceiro de Open Finance a confirmação de consentimento e o token de acesso de longa duração;
+    :Salvar o token de acesso de forma segura, associado à conta do usuário;
+    :Retornar 'true' (consentimento obtido);
+else (Não)
+    :Receber a notificação de que o usuário recusou o compartilhamento;
+    :Registrar no log que o usuário recusou o consentimento;
+    :Retornar 'false' (consentimento negado);
+endif
+
+stop
+
+@enduml

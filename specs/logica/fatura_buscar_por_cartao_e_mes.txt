@@ -1,0 +1,23 @@
+@startuml
+title Diagrama de Atividades: Buscar por cartão e mês
+
+start
+
+:Recebe parâmetros de entrada;
+
+:Valida os parâmetros de entrada;
+if (Parâmetros são válidos?) then (não)
+    :Lança erro: "Parâmetros inválidos.";
+    stop
+endif
+
+:Consultar no banco de dados;
+
+if (Faturas encontradas?) then (não)
+    :Lança erro: "Nenhuma fatura encontrada para o cartão e mês especificados.";
+else (sim)
+    :Retorna a fatura encontrada;
+endif
+
+stop
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+title Diagrama de Atividades: carregarMes
+
+start
+
+:Recebe parâmetros de entrada (mês, ano);
+
+:Valida os parâmetros de entrada;
+if (mês inválido ou ano inválido?) then (sim)
+  :Lança erro: "Parâmetros de calendário inválidos.";
+  stop
+endif
+
+:Busca todas as transações e assinaturas do mês e ano especificados;
+:Agrupa as transações e assinaturas por dia do mês;
+:Cria uma lista para o calendário com objetos para cada dia;
+:Preenche os objetos de cada dia com as transações e assinaturas agrupadas;
+
+:Retorna a lista do calendário financeiro com todos os dias do mês e suas ocorrências;
+
+stop
+@enduml
