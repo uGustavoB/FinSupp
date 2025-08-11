@@ -1,0 +1,54 @@
+@startuml
+
+start
+:Receber parâmetros da transação (tipo, valor, contas, etc.);
+:Validar dados essenciais (ex: valor > 0, conta de origem existe);
+
+if (Dados de entrada são válidos?) then (Sim)
+    :Criar objeto Transacao na memória com os dados recebidos;
+
+    if (tipo da transação é 'DESPESA'?) then (Despesa)
+        :Verificar se a conta de origem tem saldo suficiente;
+        if (Saldo suficiente?) then (Sim)
+            :Debitar o valor do saldo da conta de origem;
+            :Verificar se a transação é de cartão de crédito;
+            if (É de cartão de crédito?) then (Sim)
+                :Associar transação à fatura correta;
+                :Atualizar o valor total da fatura;
+            endif
+            :Salvar Transacao e atualizar Conta/Fatura no banco de dados;
+            :Retornar "Despesa registrada com sucesso";
+        else (Não)
+            :Retornar erro "Saldo insuficiente";
+        endif
+
+    elseif (tipo da transação é 'RECEITA'?) then (Receita)
+        :Creditar o valor ao saldo da conta de origem/destino;
+        :Salvar Transacao e atualizar Conta no banco de dados;
+        :Retornar "Receita registrada com sucesso";
+
+    elseif (tipo da transação é 'TRANSFERENCIA'?) then (Transferência)
+        :Verificar se a conta de destino foi informada e é válida;
+        if (Conta de destino válida?) then (Sim)
+            :Verificar se a conta de origem tem saldo suficiente;
+            if (Saldo suficiente?) then (Sim)
+                :Debitar valor da conta de origem;
+                :Creditar valor na conta de destino;
+                :Salvar Transacao e atualizar ambas as Contas no banco de dados;
+                :Retornar "Transferência realizada com sucesso";
+            else (Não)
+                :Retornar erro "Saldo insuficiente para transferência";
+            endif
+        else (Não)
+            :Retornar erro "Conta de destino inválida";
+        endif
+    else (Tipo Inválido)
+        :Retornar erro "Tipo de transação desconhecido";
+    endif
+else (Não)
+    :Retornar erro "Dados da transação são inválidos";
+endif
+
+stop
+
+@enduml
