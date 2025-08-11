@@ -1,0 +1,11 @@
+@startuml
+start
+:Receber ID da categoria;
+:Consultar banco de dados pela categoria com o ID informado;
+if (Categoria encontrada?) then (Sim)
+  :Retornar categoria;
+else (Não)
+  :Retornar nulo ou lançar exceção "Categoria não encontrada";
+endif
+stop
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+start
+:Receber ID da categoria;
+:Consultar categoria no banco de dados;
+if (Categoria não encontrada?) then (Sim)
+  :Encerrar operação;
+  stop
+endif
+:Verificar se existem transações vinculadas à categoria;
+if (Existem transações vinculadas?) then (Sim)
+  :Lançar erro "Não é possível excluir categoria vinculada a transações";
+  stop
+endif
+:Excluir categoria do banco de dados;
+:Confirmar exclusão;
+stop
+@enduml
