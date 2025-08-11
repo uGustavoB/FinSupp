@@ -1,0 +1,16 @@
+@startuml
+start
+:Receber dados para edição;
+:Buscar transação pelo ID;
+if (Transação encontrada?) then (Sim)
+  :Validar novos dados;
+  if (Alteração de valor?) then (Sim)
+    :Registrar histórico de alteração;
+  endif
+  :Atualizar atributos da transação;
+  :Salvar alterações no banco;
+else (Não)
+  :Lançar exceção "Transação não encontrada";
+endif
+stop
+@enduml
