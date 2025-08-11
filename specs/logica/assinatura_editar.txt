@@ -1,0 +1,9 @@
+@startuml
+start
+:Receber parâmetros de edição;
+:Localizar assinatura no banco de dados;
+:Validar dados informados;
+:Atualizar informações da assinatura;
+:Salvar alterações no banco de dados;
+stop
+@enduml

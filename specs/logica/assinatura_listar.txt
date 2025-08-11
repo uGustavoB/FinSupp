@@ -1,0 +1,7 @@
+@startuml
+start
+:Receber filtro de pesquisa;
+:Buscar assinaturas no banco conforme filtro;
+:Retornar lista de assinaturas;
+stop
+@enduml
