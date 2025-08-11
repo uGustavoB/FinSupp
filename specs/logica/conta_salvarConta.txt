@@ -1,0 +1,23 @@
+@startuml
+
+start
+:Receber parâmetros (banco, numeroConta, agencia);
+:Validar dados de entrada (campos não podem ser vazios);
+
+if (Dados de entrada são válidos?) then (Sim)
+    :Verificar se já existe uma conta com os mesmos dados para o cliente atual;
+    if (Conta já existe?) then (Sim)
+        :Retornar erro "Esta conta já está cadastrada";
+    else (Não)
+        :Criar um novo objeto Conta com os dados fornecidos;
+        :Associar a nova conta ao cliente logado;
+        :Salvar o novo objeto Conta no banco de dados;
+        :Retornar o objeto Conta criado com sucesso;
+    endif
+else (Não)
+    :Retornar erro "Dados da conta são inválidos. Preencha todos os campos.";
+endif
+
+stop
+
+@enduml
