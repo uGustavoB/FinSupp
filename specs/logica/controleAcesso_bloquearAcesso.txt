@@ -10,8 +10,8 @@ if (Motivo é válido?) then (Sim)
         :Salvar a alteração do status do cliente no banco de dados;
         :Chamar 'LogAlteracaoPerfil.registrarAlteracao(...)' 
         com a ação "Bloqueio de Conta" e o motivo fornecido;
-        :Chamar 'Notificacao.criar(...)' 
-        para informar o cliente sobre o bloqueio de sua conta;
+        :Chamar 'Notificacao.criar(cliente, mensagem, true)' 
+        para informar o cliente sobre o bloqueio por e-mail;
         :Retornar "Acesso do usuário bloqueado com sucesso";
     else (Não)
         :Retornar erro "Reautenticação falhou. Ação cancelada.";
