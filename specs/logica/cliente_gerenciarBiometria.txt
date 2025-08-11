@@ -1,0 +1,34 @@
+@startuml
+
+start
+:Receber parâmetros (identificadorDispositivo, boolean habilitar);
+
+if (habilitar é true?) then (Sim, Habilitar)
+    :Solicitar senha atual do usuário para confirmação;
+    :Receber senha digitada;
+    :Validar se a senha atual está correta;
+    if (Senha válida?) then (Sim)
+        :Solicitar interação com o sensor biométrico do dispositivo;
+        :Receber confirmação de sucesso do dispositivo;
+        :Atualizar status da biometria do usuário para "Habilitado";
+        :Salvar alteração no banco de dados;
+        :Registrar log de segurança (Biometria Habilitada);
+        :Retornar "Biometria habilitada com sucesso";
+    else (Não)
+        :Retornar erro "Senha incorreta";
+    endif
+else (Não, Desabilitar)
+    :Solicitar confirmação "Deseja realmente desabilitar a biometria?";
+    if (Usuário confirmou?) then (Sim)
+        :Atualizar status da biometria do usuário para "Desabilitado";
+        :Salvar alteração no banco de dados;
+        :Registrar log de segurança (Biometria Desabilitada);
+        :Retornar "Biometria desabilitada com sucesso";
+    else (Não)
+        :Retornar "Operação cancelada";
+    endif
+endif
+
+stop
+
+@enduml
