@@ -135,7 +135,7 @@ class Notificacao {
 
     + List<Notificacao> listarNaoLidas(Cliente usuario)
     + void marcarComoLida()
-    + void criarNotificacao(Cliente usuario, String mensagem)
+    + void criarNotificacao(Cliente usuario, String mensagem, enviarEmail = false)
 }
 
 class Fatura {
