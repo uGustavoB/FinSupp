@@ -1,0 +1,30 @@
+@startuml
+
+start
+:Receber parâmetros (Conta conta, boolean adicionar);
+
+if (adicionar é true?) then (Sim, Adicionar)
+    :Verificar se a conta já está na lista de contas do cliente;
+    if (Conta já associada?) then (Sim)
+        :Retornar erro "Conta já associada";
+    else (Não)
+        :Adicionar a conta à lista de contas do cliente;
+        :Salvar a associação no banco de dados;
+        :Registrar log da alteração no perfil;
+        :Retornar status "Conta adicionada com sucesso";
+    endif
+else (Não, Remover)
+    :Verificar se a conta existe na lista de contas do cliente;
+    if (Conta não encontrada?) then (Sim)
+        :Retornar erro "Conta não encontrada para remoção";
+    else (Não)
+        :Remover a conta da lista de contas do cliente;
+        :Salvar a alteração no banco de dados;
+        :Registrar log da alteração no perfil;
+        :Retornar status "Conta removida com sucesso";
+    endif
+endif
+
+stop
+
+@enduml
