@@ -1,0 +1,21 @@
+@startuml
+
+start
+:Verificar o estado atual do modo para daltonismo (Ativado ou Desativado);
+
+if (Modo para daltonismo está 'Ativado'?) then (Sim)
+    :Alterar o estado para 'Desativado';
+    :Aplicar o tema de cores padrão na interface;
+    :Salvar a preferência do usuário (Modo Daltonismo Desativado);
+    :Retornar "Modo de alto contraste para daltonismo desativado";
+else (Não)
+    :Alterar o estado para 'Ativado';
+    :Aplicar um tema de cores de alto contraste na interface, 
+    otimizado para diferentes tipos de daltonismo;
+    :Salvar a preferência do usuário (Modo Daltonismo Ativado);
+    :Retornar "Modo de alto contraste para daltonismo ativado";
+endif
+
+stop
+
+@enduml
