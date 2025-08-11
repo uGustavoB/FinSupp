@@ -1,0 +1,37 @@
+@startuml
+
+start
+:Receber parâmetro (Conta conta);
+:Buscar o token de acesso seguro associado a esta 'conta';
+:Verificar se o token existe e é válido;
+
+if (Token válido?) then (Sim)
+    :Iniciar chamada de API para o parceiro de Open Finance,
+    usando o token para solicitar as transações da 'conta'
+    desde a última sincronização;
+    :Aguardar a resposta da API externa;
+    
+    if (API respondeu com sucesso?) then (Sim)
+        :Receber a lista de novas transações;
+        
+        repeat
+            :Pegar a próxima transação da lista recebida;
+            :Verificar se a transação já existe no nosso banco de dados (evitar duplicidade);
+            if (Não existe?) then (Sim)
+                :Chamar 'Transacao.salvar()' para criar e salvar a nova transação no sistema;
+            endif
+        repeat while (Ainda existem transações a serem processadas?)
+        
+        :Atualizar a data/hora da última sincronização para a 'conta';
+        :Retornar "Sincronização concluída com sucesso";
+    else (Não)
+        :Registrar erro de comunicação com a API no log;
+        :Retornar erro "Não foi possível buscar as transações";
+    endif
+else (Não, token inválido/expirado)
+    :Retornar erro "A conexão com o banco expirou. É necessário reconectar a conta.";
+endif
+
+stop
+
+@enduml
