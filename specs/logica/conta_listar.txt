@@ -1,0 +1,18 @@
+@startuml
+
+start
+:Receber parâmetro (String filtro);
+:Identificar o cliente logado;
+:Iniciar consulta base no banco de dados para as contas do cliente;
+
+if (Parâmetro 'filtro' foi fornecido e não está vazio?) then (Sim)
+    :Adicionar condição à consulta para buscar pelo 'filtro' nos campos (ex: nome, banco);
+endif
+
+:Executar a consulta final no banco de dados;
+:Coletar os resultados da consulta;
+:Retornar a lista de Contas encontradas (pode ser uma lista vazia);
+
+stop
+
+@enduml
