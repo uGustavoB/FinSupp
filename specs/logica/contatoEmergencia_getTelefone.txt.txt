@@ -1,8 +1,0 @@
-@startuml
-
-start
-:Ler o valor do atributo 'telefoneSecundario' do objeto;
-:Retornar o valor lido;
-stop
-
-@enduml
