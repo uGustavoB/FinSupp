@@ -1,0 +1,7 @@
+@startuml
+
+start
+:Retornar a própria instância do objeto 'ContatoEmergencia' (this);
+stop
+
+@enduml

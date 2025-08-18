@@ -1,8 +1,0 @@
-@startuml
-
-start
-:Ler o valor do atributo 'emailAlternativo' do objeto;
-:Retornar o valor lido;
-stop
-
-@enduml
