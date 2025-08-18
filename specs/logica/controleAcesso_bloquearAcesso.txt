@@ -1,23 +1,23 @@
 @startuml
 
 start
-:Receber parâmetros (Usuario cliente, Usuario atendente, String motivo);
-:Chamar 'validarMotivo(motivo)';
+:Receber parâmetros (Usuario cliente, Usuario administrador, String motivo);
+:Verificar se o motivo fornecido é válido (ex: não está em branco, tem tamanho mínimo);
+
 if (Motivo é válido?) then (Sim)
-    :Chamar 'solicitarReautenticacao(atendente)';
-    if (Atendente reautenticado com sucesso?) then (Sim)
-        :Alterar o status da conta do cliente para "Bloqueado";
+    :Solicitar reautenticação do 'administrador' (ex: pedir a senha novamente);
+    if (Administrador reautenticado com sucesso?) then (Sim)
+        :Alterar o status da conta do 'cliente' para "Bloqueado";
         :Salvar a alteração do status do cliente no banco de dados;
-        :Chamar 'LogAlteracaoPerfil.registrarAlteracao(...)' 
-        com a ação "Bloqueio de Conta" e o motivo fornecido;
-        :Chamar 'Notificacao.criar(cliente, mensagem, true)' 
-        para informar o cliente sobre o bloqueio por e-mail;
+        :Chamar 'LogAlteracaoPerfil.registrarAlteracao(...)' com a ação "Bloqueio de Conta",
+        o administrador como responsável e o motivo fornecido;
+        :Chamar 'Notificacao.criarNotificacao(cliente, "Sua conta foi bloqueada por motivos de segurança...", true)';
         :Retornar "Acesso do usuário bloqueado com sucesso";
     else (Não)
-        :Retornar erro "Reautenticação falhou. Ação cancelada.";
+        :Retornar erro "Reautenticação do administrador falhou. Ação cancelada.";
     endif
 else (Não)
-    :Retornar erro "Motivo inválido. Ação cancelada.";
+    :Retornar erro "Motivo inválido ou insuficiente. Ação cancelada.";
 endif
 
 stop
