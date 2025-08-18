@@ -100,7 +100,6 @@ class Conta {
 
     + Conta salvarConta (String banco, String numeroConta, string agencia) 
     + void compartilharAcesso(Cliente cliente, Boolean boolean)
-    + void gerenciarrAcesso(Cliente cliente, Boolean boolean)
     + List<Conta> listar(String filtro)
     + Conta buscarPorId(int id)
     + void editar(String nome, String banco, String numeroConta)
