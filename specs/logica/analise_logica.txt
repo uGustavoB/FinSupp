@@ -7,13 +7,14 @@ abstract class Usuario {
     - String nome
     - String email
     - String senha
-    - String tipo
+    - String tipo  
+      
 }
 
 class Cliente {
     - ContatoEmergencia contatoEmergencia
     - String Biometria
-    - List<ContaBancaria> contas
+    - List<Conta> contas
 
     + void gerenciarConta(Conta conta, Boolean boolean)
     + void gerenciarBiometria(String Biometria, Boolean boolean)
@@ -24,7 +25,7 @@ class Cliente {
 class AtendenteSuporte {
     - String cargo
 
-    + boolean autenticar(String senha)
+    
 }
 class Administrador
 
@@ -95,9 +96,11 @@ class Conta {
     - String agencia
     - boolean isOpenFinance
     - list <Cliente> acessoCompartilhado
+    - list <Cartao> cartoes
 
     + Conta salvarConta (String banco, String numeroConta, string agencia) 
-    + void compartilharAcesso(Cliente cliente, Boolean boolean)    
+    + void compartilharAcesso(Cliente cliente, Boolean boolean)
+    + void gerenciarrAcesso(Cliente cliente, Boolean boolean)
     + List<Conta> listar(String filtro)
     + Conta buscarPorId(int id)
     + void editar(String nome, String banco, String numeroConta)
@@ -134,7 +137,7 @@ class Notificacao {
 
     + List<Notificacao> listarNaoLidas(Cliente usuario)
     + void marcarComoLida()
-    + void criarNotificacao(Cliente usuario, String mensagem, enviarEmail = false)
+    + void criarNotificacao(Cliente usuario, String mensagem)
 }
 
 class Fatura {
@@ -224,8 +227,7 @@ class ContatoEmergencia {
     - Date dataCadastro
 
     + boolean existeContato()
-    + String getTelefone()
-    + String getEmail()
+    + ContatoEmergencia getContatoEmergencia()
 }
 
 
@@ -265,11 +267,10 @@ class ArquivoAnexo {
 
 class ControleAcesso {
 
-    + Usuario loginEmailSenha(String email, String senha)
-    + Usuario loginBiometria(String identificadorBiometrico)
+    + Usuario logar(String email, String senha)
+    + Usuario logarComBiometria(String identificadorBiometrico)
     + boolean solicitarReautenticacao(AtendenteSuporte atendente)
-    + boolean validarMotivo(String motivo)
-    + void bloquearAcesso(Usuario cliente, Usuario atendente, String motivo)
+    + void bloquearAcesso(Usuario cliente, Usuario Admnistrador, String motivo)
     + void recuperarSenha(Usuario usuario)
 }
 
@@ -304,7 +305,7 @@ class LogLogin{
 
 
 
-Class GerirAcessibilidade{
+Class Sistema{
      + void GerenciarModoLeituraDeTela()
      + void GerenciarModoDaltonismo()  
      + void GerenciarControlePorVoz()
@@ -348,17 +349,17 @@ enum EnumFrequencia {
 Usuario <|-- Cliente
 Usuario <|-- AtendenteSuporte
 Usuario <|-- Administrador
+ControleAcesso <|-- Sistema
 
-Usuario --> GerirAcessibilidade : "gerencia"
+Usuario --> Sistema: "Usa"
 Usuario --> LogLogin : possui >
 
 Cliente --> LogAlteracaoPerfil : gera >
 
 ControleAcesso ..> Usuario : autentica >
-ControleAcesso ..> AtendenteSuporte : reautentica >
 ControleAcesso ..> Usuario : bloqueiaAcesso >
 
-GerirAcessibilidade ..> Usuario : aplicaRecursosDeAcessibilidade >
+Sistema..> Usuario : aplicaRecursosDeAcessibilidade >
 
 ' ======= CLiente =======
 Cliente "1" --> "N" ContatoEmergencia : possui >
@@ -369,7 +370,7 @@ Cliente "1"--> "N" Notificacao : recebe >
 Cliente "1"--> "N" Assinatura : gerencia >
 Cliente "1"--> "N" Meta : gerencia >
 Cliente "1"--> "N" Categoria : gerencia >
-
+Cliente "1"--> "N" Relatorio : gera >
 
 
 ' ----- Conta -----
@@ -378,6 +379,8 @@ Conta "1" *-- "N" Transacao : registra >
 
 Conta <.. DashboardFinanceira
 Conta <.. CalendarioFinanceiro
+
+Cartao "1" *-- "N" Fatura : possui >
 
 openFinance --> Conta : atualizaDados >
 
@@ -394,9 +397,10 @@ Transacao <.. DashboardFinanceira
 Transacao <.. CalendarioFinanceiro
 
 ' ----- Ticket -----
-Usuario "1"--> "N" Ticket 
-Ticket --> Usuario : criadoPor >
-Ticket --> Usuario : atendenteResponsavel >
+Cliente "1"--> "N" Ticket 
+AtendenteSuporte "1"--> "N" Ticket 
+Ticket --> Cliente : criadoPor >
+Ticket --> AtendenteSuporte : atendenteResponsavel >
 Ticket "0" *--  "N" Mensagem : possui >
 
 ' ----- Mensagem -----
